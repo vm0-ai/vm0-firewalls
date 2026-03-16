@@ -1,0 +1,21 @@
+name: slack
+description: Slack API
+placeholders:
+  SLACK_TOKEN: "xoxb-0000-0000-Vm0PlaceHolder0000000000"
+apis:
+  - base: https://slack.com/api
+    auth:
+      headers:
+        Authorization: "Bearer ${{ secrets.SLACK_TOKEN }}"
+    permissions:
+      - name: full-access
+        rules:
+          - ANY /{path+}
+  - base: https://files.slack.com
+    auth:
+      headers:
+        Authorization: "Bearer ${{ secrets.SLACK_TOKEN }}"
+    permissions:
+      - name: full-access
+        rules:
+          - ANY /{path+}
