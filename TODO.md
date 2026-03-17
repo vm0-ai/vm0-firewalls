@@ -1,13 +1,20 @@
 # Firewall TODO
 
+Each firewall should align with its OAuth provider / connector in vm0.
+
 ## High Priority
 
 Commonly used connectors with fine-grained permission/scope systems.
 
-- [ ] Google (Gmail, Drive, Docs, Sheets, Calendar) — OAuth scopes, Discovery API doc
+- [ ] Gmail — Google OAuth, scope `gmail.modify`, base `https://gmail.googleapis.com`
+- [ ] Google Sheets — Google OAuth, scope `spreadsheets`, base `https://sheets.googleapis.com`
+- [ ] Google Docs — Google OAuth, scope `documents`, base `https://docs.googleapis.com`
+- [ ] Google Drive — Google OAuth, scope `drive`, base `https://www.googleapis.com/drive`
+- [ ] Google Calendar — Google OAuth, scope `calendar`, base `https://www.googleapis.com/calendar`
 - [ ] Notion — capabilities permission system
 - [ ] Linear — OAuth scopes
-- [ ] Atlassian (Jira, Confluence) — OAuth scopes
+- [ ] Atlassian (Jira) — OAuth scopes
+- [ ] Atlassian (Confluence) — OAuth scopes
 - [ ] HubSpot — OAuth scopes
 
 ## Medium Priority
@@ -27,7 +34,8 @@ Commonly used with simpler permission models.
 API key auth or smaller usage.
 
 - [ ] OpenAI — API key, group by endpoint
-- [ ] Microsoft Graph (Outlook Mail, Calendar) — OAuth scopes, very large API surface
+- [ ] Microsoft Graph (Outlook Mail) — OAuth scopes, very large API surface
+- [ ] Microsoft Graph (Outlook Calendar) — OAuth scopes
 - [ ] Supabase — OAuth
 - [ ] PostHog — API key
 - [ ] Airtable — OAuth scopes
