@@ -6,11 +6,6 @@ Each firewall should align with its OAuth provider / connector in vm0.
 
 Commonly used connectors with fine-grained permission/scope systems.
 
-- [ ] Gmail — Google OAuth, scope `gmail.modify`, base `https://gmail.googleapis.com`
-- [ ] Google Sheets — Google OAuth, scope `spreadsheets`, base `https://sheets.googleapis.com`
-- [ ] Google Docs — Google OAuth, scope `documents`, base `https://docs.googleapis.com`
-- [ ] Google Drive — Google OAuth, scope `drive`, base `https://www.googleapis.com/drive`
-- [ ] Google Calendar — Google OAuth, scope `calendar`, base `https://www.googleapis.com/calendar`
 - [ ] Notion — capabilities permission system
 - [ ] Linear — OAuth scopes
 - [ ] Atlassian (Jira) — OAuth scopes
@@ -46,3 +41,8 @@ API key auth or smaller usage.
 
 - [x] GitHub — auto-generated from `github/docs` server-to-server-permissions.json
 - [x] Slack — auto-generated from `slack-ruby/slack-api-ref`
+- [x] Gmail — auto-generated from Google Discovery API
+- [x] Google Sheets — auto-generated from Google Discovery API
+- [x] Google Docs — auto-generated from Google Discovery API
+- [x] Google Drive — auto-generated from Google Discovery API
+- [x] Google Calendar — auto-generated from Google Discovery API

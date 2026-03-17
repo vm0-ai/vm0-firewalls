@@ -1,0 +1,85 @@
+# Auto-generated from Google's Discovery API.
+# Source: https://sheets.googleapis.com/$discovery/rest?version=v4
+# Regenerate: python3 google-sheets/generate.py
+name: google-sheets
+description: Google Sheets API
+placeholders:
+  GOOGLE_SHEETS_TOKEN: "ya29.Vm0PlaceHolder000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+apis:
+  - base: https://sheets.googleapis.com/v4
+    auth:
+      headers:
+        Authorization: "Bearer ${{ secrets.GOOGLE_SHEETS_TOKEN }}"
+    permissions:
+      - name: drive
+        description: See, edit, create, and delete all of your Google Drive files
+        rules:
+          - POST /spreadsheets
+          - GET /spreadsheets/{spreadsheetId}
+          - GET /spreadsheets/{spreadsheetId}/developerMetadata/{metadataId}
+          - POST /spreadsheets/{spreadsheetId}/developerMetadata:search
+          - POST /spreadsheets/{spreadsheetId}/sheets/{sheetId}:copyTo
+          - GET /spreadsheets/{spreadsheetId}/values/{range}
+          - PUT /spreadsheets/{spreadsheetId}/values/{range}
+          - POST /spreadsheets/{spreadsheetId}/values/{range}:append
+          - POST /spreadsheets/{spreadsheetId}/values/{range}:clear
+          - POST /spreadsheets/{spreadsheetId}/values:batchClear
+          - POST /spreadsheets/{spreadsheetId}/values:batchClearByDataFilter
+          - GET /spreadsheets/{spreadsheetId}/values:batchGet
+          - POST /spreadsheets/{spreadsheetId}/values:batchGetByDataFilter
+          - POST /spreadsheets/{spreadsheetId}/values:batchUpdate
+          - POST /spreadsheets/{spreadsheetId}/values:batchUpdateByDataFilter
+          - POST /spreadsheets/{spreadsheetId}:batchUpdate
+          - POST /spreadsheets/{spreadsheetId}:getByDataFilter
+      - name: drive.file
+        description: See, edit, create, and delete only the specific Google Drive files you use with this app
+        rules:
+          - POST /spreadsheets
+          - GET /spreadsheets/{spreadsheetId}
+          - GET /spreadsheets/{spreadsheetId}/developerMetadata/{metadataId}
+          - POST /spreadsheets/{spreadsheetId}/developerMetadata:search
+          - POST /spreadsheets/{spreadsheetId}/sheets/{sheetId}:copyTo
+          - GET /spreadsheets/{spreadsheetId}/values/{range}
+          - PUT /spreadsheets/{spreadsheetId}/values/{range}
+          - POST /spreadsheets/{spreadsheetId}/values/{range}:append
+          - POST /spreadsheets/{spreadsheetId}/values/{range}:clear
+          - POST /spreadsheets/{spreadsheetId}/values:batchClear
+          - POST /spreadsheets/{spreadsheetId}/values:batchClearByDataFilter
+          - GET /spreadsheets/{spreadsheetId}/values:batchGet
+          - POST /spreadsheets/{spreadsheetId}/values:batchGetByDataFilter
+          - POST /spreadsheets/{spreadsheetId}/values:batchUpdate
+          - POST /spreadsheets/{spreadsheetId}/values:batchUpdateByDataFilter
+          - POST /spreadsheets/{spreadsheetId}:batchUpdate
+          - POST /spreadsheets/{spreadsheetId}:getByDataFilter
+      - name: drive.readonly
+        description: See and download all your Google Drive files
+        rules:
+          - GET /spreadsheets/{spreadsheetId}
+          - GET /spreadsheets/{spreadsheetId}/values/{range}
+          - GET /spreadsheets/{spreadsheetId}/values:batchGet
+      - name: spreadsheets
+        description: See, edit, create, and delete all your Google Sheets spreadsheets
+        rules:
+          - POST /spreadsheets
+          - GET /spreadsheets/{spreadsheetId}
+          - GET /spreadsheets/{spreadsheetId}/developerMetadata/{metadataId}
+          - POST /spreadsheets/{spreadsheetId}/developerMetadata:search
+          - POST /spreadsheets/{spreadsheetId}/sheets/{sheetId}:copyTo
+          - GET /spreadsheets/{spreadsheetId}/values/{range}
+          - PUT /spreadsheets/{spreadsheetId}/values/{range}
+          - POST /spreadsheets/{spreadsheetId}/values/{range}:append
+          - POST /spreadsheets/{spreadsheetId}/values/{range}:clear
+          - POST /spreadsheets/{spreadsheetId}/values:batchClear
+          - POST /spreadsheets/{spreadsheetId}/values:batchClearByDataFilter
+          - GET /spreadsheets/{spreadsheetId}/values:batchGet
+          - POST /spreadsheets/{spreadsheetId}/values:batchGetByDataFilter
+          - POST /spreadsheets/{spreadsheetId}/values:batchUpdate
+          - POST /spreadsheets/{spreadsheetId}/values:batchUpdateByDataFilter
+          - POST /spreadsheets/{spreadsheetId}:batchUpdate
+          - POST /spreadsheets/{spreadsheetId}:getByDataFilter
+      - name: spreadsheets.readonly
+        description: See all your Google Sheets spreadsheets
+        rules:
+          - GET /spreadsheets/{spreadsheetId}
+          - GET /spreadsheets/{spreadsheetId}/values/{range}
+          - GET /spreadsheets/{spreadsheetId}/values:batchGet
