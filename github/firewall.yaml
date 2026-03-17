@@ -4,8 +4,8 @@
 name: github
 description: GitHub API
 placeholders:
-  GITHUB_TOKEN: "gho_Vm0PlaceHolder0000000000000000000000"
-  GH_TOKEN: "gho_Vm0PlaceHolder0000000000000000000000"
+  GITHUB_TOKEN: "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"
+  GH_TOKEN: "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"
 apis:
   - base: https://api.github.com
     auth:

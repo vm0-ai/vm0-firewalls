@@ -15,6 +15,7 @@ Usage:
     python3 github/generate.py
 """
 
+import binascii
 import json
 import os
 import sys
@@ -25,6 +26,34 @@ PERMS_URL = (
     "https://raw.githubusercontent.com/github/docs/main/"
     "src/github-apps/data/fpt-2026-03-10/server-to-server-permissions.json"
 )
+
+# ── Placeholder token generation ──────────────────────────────────────────
+#
+# GitHub tokens use CRC32 checksums for offline format validation.
+# Structure: prefix (4 chars) + entropy (30 chars) + checksum (6 chars)
+# The checksum is CRC32 of the entropy, encoded as Base62 (GMP alphabet).
+# We generate a placeholder that passes format validation but is not a
+# real credential.
+# Reference: https://github.blog/engineering/platform-security/behind-githubs-new-authentication-token-formats/
+
+_BASE62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+
+def _base62_encode(num, pad=6):
+    if num == 0:
+        return _BASE62[0] * pad
+    result = []
+    while num > 0:
+        result.append(_BASE62[num % 62])
+        num //= 62
+    result.reverse()
+    return "".join(result).rjust(pad, "0")
+
+
+def _make_github_placeholder(prefix="gho_", entropy="Vm0PlaceHolder0000000000000000"):
+    """Generate a GitHub token placeholder with valid CRC32 checksum."""
+    crc = binascii.crc32(entropy.encode()) & 0xFFFFFFFF
+    return f"{prefix}{entropy}{_base62_encode(crc)}"
 
 # ── Path conversion ───────────────────────────────────────────────────────
 
@@ -118,6 +147,7 @@ def _emit_permissions(groups, descriptions, perms_data, lines):
 
 
 def render_yaml(groups, descriptions, perms_data):
+    placeholder = _make_github_placeholder()
     lines = [
         "# Auto-generated from GitHub's official permissions data.",
         "# Source: github/docs/src/github-apps/data/fpt-2026-03-10/"
@@ -126,8 +156,8 @@ def render_yaml(groups, descriptions, perms_data):
         "name: github",
         "description: GitHub API",
         "placeholders:",
-        '  GITHUB_TOKEN: "gho_Vm0PlaceHolder0000000000000000000000"',
-        '  GH_TOKEN: "gho_Vm0PlaceHolder0000000000000000000000"',
+        f'  GITHUB_TOKEN: "{placeholder}"',
+        f'  GH_TOKEN: "{placeholder}"',
         "apis:",
         "  - base: https://api.github.com",
         "    auth:",
