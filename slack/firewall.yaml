@@ -1,21 +1,706 @@
+# Auto-generated from Slack API method-to-scope mappings.
+# Source: slack-ruby/slack-api-ref (auto-synced daily from docs.slack.dev)
+# Regenerate: python3 slack/generate.py
 name: slack
 description: Slack API
 placeholders:
-  SLACK_TOKEN: "xoxb-0000-0000-Vm0PlaceHolder0000000000"
+  SLACK_TOKEN: "xoxb-000000000000-0000000000000-Vm0PlaceHolder0000000000"
 apis:
   - base: https://slack.com/api
     auth:
       headers:
         Authorization: "Bearer ${{ secrets.SLACK_TOKEN }}"
     permissions:
-      - name: full-access
+      - name: admin
+        description: Slack scope "admin"
         rules:
-          - ANY /{path+}
+          - POST /admin.audit.anomaly.allow.getItem
+          - POST /admin.audit.anomaly.allow.updateItem
+          - POST /team.accessLogs
+          - POST /team.billableInfo
+          - POST /team.integrationLogs
+      - name: admin.analytics:read
+        description: Slack scope "admin.analytics:read"
+        rules:
+          - POST /admin.analytics.getFile
+          - POST /admin.analytics.messages.activity
+          - POST /admin.analytics.messages.metadata
+      - name: admin.app_activities:read
+        description: Slack scope "admin.app_activities:read"
+        rules:
+          - POST /admin.apps.activities.list
+      - name: admin.apps:read
+        description: Slack scope "admin.apps:read"
+        rules:
+          - POST /admin.apps.approved.list
+          - POST /admin.apps.config.lookup
+          - POST /admin.apps.requests.list
+          - POST /admin.apps.restricted.list
+      - name: admin.apps:write
+        description: Slack scope "admin.apps:write"
+        rules:
+          - POST /admin.apps.approve
+          - POST /admin.apps.clearResolution
+          - POST /admin.apps.config.set
+          - POST /admin.apps.requests.cancel
+          - POST /admin.apps.restrict
+          - POST /admin.apps.uninstall
+      - name: admin.barriers:read
+        description: Slack scope "admin.barriers:read"
+        rules:
+          - POST /admin.barriers.list
+      - name: admin.barriers:write
+        description: Slack scope "admin.barriers:write"
+        rules:
+          - POST /admin.barriers.create
+          - POST /admin.barriers.delete
+          - POST /admin.barriers.update
+      - name: admin.conversations:manage_objects
+        description: Slack scope "admin.conversations:manage_objects"
+        rules:
+          - POST /admin.conversations.createForObjects
+          - POST /admin.conversations.linkObjects
+          - POST /admin.conversations.unlinkObjects
+      - name: admin.conversations:read
+        description: Slack scope "admin.conversations:read"
+        rules:
+          - POST /admin.conversations.ekm.listOriginalConnectedChannelInfo
+          - POST /admin.conversations.getConversationPrefs
+          - POST /admin.conversations.getCustomRetention
+          - POST /admin.conversations.getTeams
+          - POST /admin.conversations.lookup
+          - POST /admin.conversations.restrictAccess.listGroups
+          - POST /admin.conversations.search
+      - name: admin.conversations:write
+        description: Slack scope "admin.conversations:write"
+        rules:
+          - POST /admin.conversations.archive
+          - POST /admin.conversations.bulkArchive
+          - POST /admin.conversations.bulkDelete
+          - POST /admin.conversations.bulkMove
+          - POST /admin.conversations.bulkSetExcludeFromSlackAi
+          - POST /admin.conversations.convertToPrivate
+          - POST /admin.conversations.convertToPublic
+          - POST /admin.conversations.create
+          - POST /admin.conversations.delete
+          - POST /admin.conversations.disconnectShared
+          - POST /admin.conversations.invite
+          - POST /admin.conversations.removeCustomRetention
+          - POST /admin.conversations.rename
+          - POST /admin.conversations.restrictAccess.addGroup
+          - POST /admin.conversations.restrictAccess.removeGroup
+          - POST /admin.conversations.setConversationPrefs
+          - POST /admin.conversations.setCustomRetention
+          - POST /admin.conversations.setTeams
+          - POST /admin.conversations.unarchive
+      - name: admin.invites:read
+        description: Slack scope "admin.invites:read"
+        rules:
+          - POST /admin.inviteRequests.approved.list
+          - POST /admin.inviteRequests.denied.list
+          - POST /admin.inviteRequests.list
+      - name: admin.invites:write
+        description: Slack scope "admin.invites:write"
+        rules:
+          - POST /admin.inviteRequests.approve
+          - POST /admin.inviteRequests.deny
+      - name: admin.roles:read
+        description: Slack scope "admin.roles:read"
+        rules:
+          - POST /admin.roles.listAssignments
+      - name: admin.roles:write
+        description: Slack scope "admin.roles:write"
+        rules:
+          - POST /admin.roles.addAssignments
+          - POST /admin.roles.removeAssignments
+      - name: admin.teams:read
+        description: Slack scope "admin.teams:read"
+        rules:
+          - POST /admin.emoji.list
+          - POST /admin.teams.admins.list
+          - POST /admin.teams.list
+          - POST /admin.teams.owners.list
+          - POST /admin.teams.settings.info
+      - name: admin.teams:write
+        description: Slack scope "admin.teams:write"
+        rules:
+          - POST /admin.emoji.add
+          - POST /admin.emoji.addAlias
+          - POST /admin.emoji.remove
+          - POST /admin.emoji.rename
+          - POST /admin.teams.create
+          - POST /admin.teams.settings.setDefaultChannels
+          - POST /admin.teams.settings.setDescription
+          - POST /admin.teams.settings.setDiscoverability
+          - POST /admin.teams.settings.setIcon
+          - POST /admin.teams.settings.setName
+          - POST /admin.usergroups.addTeams
+      - name: admin.usergroups:read
+        description: Slack scope "admin.usergroups:read"
+        rules:
+          - POST /admin.usergroups.listChannels
+      - name: admin.usergroups:write
+        description: Slack scope "admin.usergroups:write"
+        rules:
+          - POST /admin.usergroups.addChannels
+          - POST /admin.usergroups.removeChannels
+      - name: admin.users:read
+        description: Slack scope "admin.users:read"
+        rules:
+          - POST /admin.auth.policy.getEntities
+          - POST /admin.users.getExpiration
+          - POST /admin.users.list
+          - POST /admin.users.session.getSettings
+          - POST /admin.users.session.list
+          - POST /admin.users.unsupportedVersions.export
+      - name: admin.users:write
+        description: Slack scope "admin.users:write"
+        rules:
+          - POST /admin.auth.policy.assignEntities
+          - POST /admin.auth.policy.removeEntities
+          - POST /admin.users.assign
+          - POST /admin.users.invite
+          - POST /admin.users.remove
+          - POST /admin.users.session.clearSettings
+          - POST /admin.users.session.invalidate
+          - POST /admin.users.session.reset
+          - POST /admin.users.session.resetBulk
+          - POST /admin.users.session.setSettings
+          - POST /admin.users.setAdmin
+          - POST /admin.users.setExpiration
+          - POST /admin.users.setOwner
+          - POST /admin.users.setRegular
+      - name: admin.workflows:read
+        description: Slack scope "admin.workflows:read"
+        rules:
+          - POST /admin.functions.list
+          - POST /admin.functions.permissions.lookup
+          - POST /admin.functions.permissions.set
+          - POST /admin.workflows.permissions.lookup
+          - POST /admin.workflows.search
+      - name: admin.workflows:write
+        description: Slack scope "admin.workflows:write"
+        rules:
+          - POST /admin.workflows.collaborators.add
+          - POST /admin.workflows.collaborators.remove
+          - POST /admin.workflows.unpublish
+      - name: assistant:write
+        description: Slack scope "assistant:write"
+        rules:
+          - POST /assistant.threads.setSuggestedPrompts
+          - POST /assistant.threads.setTitle
+      - name: bookmarks:read
+        description: Slack scope "bookmarks:read"
+        rules:
+          - POST /bookmarks.list
+          - POST /workflows.featured.list
+      - name: bookmarks:write
+        description: Slack scope "bookmarks:write"
+        rules:
+          - POST /bookmarks.add
+          - POST /bookmarks.edit
+          - POST /bookmarks.remove
+          - POST /workflows.featured.add
+          - POST /workflows.featured.remove
+          - POST /workflows.featured.set
+      - name: calls:read
+        description: Slack scope "calls:read"
+        rules:
+          - POST /calls.info
+      - name: calls:write
+        description: Slack scope "calls:write"
+        rules:
+          - POST /calls.add
+          - POST /calls.end
+          - POST /calls.participants.add
+          - POST /calls.participants.remove
+          - POST /calls.update
+      - name: canvases:read
+        description: Slack scope "canvases:read"
+        rules:
+          - POST /canvases.sections.lookup
+      - name: canvases:write
+        description: Slack scope "canvases:write"
+        rules:
+          - POST /canvases.access.delete
+          - POST /canvases.access.set
+          - POST /canvases.create
+          - POST /canvases.delete
+          - POST /canvases.edit
+          - POST /conversations.canvases.create
+      - name: channels:history
+        description: Slack scope "channels:history"
+        rules:
+          - POST /conversations.history
+          - POST /conversations.replies
+      - name: channels:join
+        description: Slack scope "channels:join"
+        rules:
+          - POST /conversations.join
+      - name: channels:manage
+        description: Slack scope "channels:manage"
+        rules:
+          - POST /conversations.archive
+          - POST /conversations.close
+          - POST /conversations.create
+          - POST /conversations.invite
+          - POST /conversations.kick
+          - POST /conversations.leave
+          - POST /conversations.mark
+          - POST /conversations.open
+          - POST /conversations.rename
+          - POST /conversations.setPurpose
+          - POST /conversations.setTopic
+          - POST /conversations.unarchive
+      - name: channels:read
+        description: Slack scope "channels:read"
+        rules:
+          - POST /conversations.info
+          - POST /conversations.list
+          - POST /conversations.members
+          - POST /users.conversations
+      - name: channels:write
+        description: Slack scope "channels:write"
+        rules:
+          - POST /conversations.archive
+          - POST /conversations.close
+          - POST /conversations.create
+          - POST /conversations.invite
+          - POST /conversations.join
+          - POST /conversations.kick
+          - POST /conversations.leave
+          - POST /conversations.mark
+          - POST /conversations.open
+          - POST /conversations.rename
+          - POST /conversations.setPurpose
+          - POST /conversations.setTopic
+          - POST /conversations.unarchive
+      - name: channels:write.invites
+        description: Slack scope "channels:write.invites"
+        rules:
+          - POST /conversations.invite
+      - name: channels:write.topic
+        description: Slack scope "channels:write.topic"
+        rules:
+          - POST /conversations.setPurpose
+          - POST /conversations.setTopic
+      - name: chat:write
+        description: Slack scope "chat:write"
+        rules:
+          - POST /assistant.threads.setStatus
+          - POST /chat.appendStream
+          - POST /chat.delete
+          - POST /chat.deleteScheduledMessage
+          - POST /chat.meMessage
+          - POST /chat.postEphemeral
+          - POST /chat.postMessage
+          - POST /chat.scheduleMessage
+          - POST /chat.startStream
+          - POST /chat.stopStream
+          - POST /chat.update
+      - name: client
+        description: Slack scope "client"
+        rules:
+          - POST /admin.workflows.triggers.types.permissions.lookup
+          - POST /admin.workflows.triggers.types.permissions.set
+      - name: conversations.connect:manage
+        description: Slack scope "conversations.connect:manage"
+        rules:
+          - POST /conversations.approveSharedInvite
+          - POST /conversations.declineSharedInvite
+          - POST /conversations.externalInvitePermissions.set
+          - POST /conversations.listConnectInvites
+          - POST /conversations.requestSharedInvite.approve
+          - POST /conversations.requestSharedInvite.deny
+          - POST /conversations.requestSharedInvite.list
+          - POST /team.externalTeams.disconnect
+          - POST /team.externalTeams.list
+          - POST /users.discoverableContacts.lookup
+      - name: conversations.connect:write
+        description: Slack scope "conversations.connect:write"
+        rules:
+          - POST /conversations.acceptSharedInvite
+          - POST /conversations.inviteShared
+      - name: datastore:read
+        description: Slack scope "datastore:read"
+        rules:
+          - POST /apps.datastore.bulkGet
+          - POST /apps.datastore.count
+          - POST /apps.datastore.get
+          - POST /apps.datastore.query
+      - name: datastore:write
+        description: Slack scope "datastore:write"
+        rules:
+          - POST /apps.datastore.bulkDelete
+          - POST /apps.datastore.bulkPut
+          - POST /apps.datastore.delete
+          - POST /apps.datastore.put
+          - POST /apps.datastore.update
+      - name: dnd:read
+        description: Slack scope "dnd:read"
+        rules:
+          - POST /dnd.info
+          - POST /dnd.teamInfo
+      - name: dnd:write
+        description: Slack scope "dnd:write"
+        rules:
+          - POST /dnd.endDnd
+          - POST /dnd.endSnooze
+          - POST /dnd.setSnooze
+      - name: emoji:read
+        description: Slack scope "emoji:read"
+        rules:
+          - POST /emoji.list
+      - name: files:read
+        description: Slack scope "files:read"
+        rules:
+          - POST /files.info
+          - POST /files.list
+      - name: files:write
+        description: Slack scope "files:write"
+        rules:
+          - POST /files.comments.delete
+          - POST /files.completeUploadExternal
+          - POST /files.delete
+          - POST /files.getUploadURLExternal
+          - POST /files.revokePublicURL
+          - POST /files.sharedPublicURL
+          - POST /files.upload
+      - name: groups:history
+        description: Slack scope "groups:history"
+        rules:
+          - POST /conversations.history
+          - POST /conversations.replies
+      - name: groups:read
+        description: Slack scope "groups:read"
+        rules:
+          - POST /conversations.info
+          - POST /conversations.list
+          - POST /conversations.members
+          - POST /users.conversations
+      - name: groups:write
+        description: Slack scope "groups:write"
+        rules:
+          - POST /conversations.archive
+          - POST /conversations.close
+          - POST /conversations.create
+          - POST /conversations.invite
+          - POST /conversations.kick
+          - POST /conversations.leave
+          - POST /conversations.mark
+          - POST /conversations.open
+          - POST /conversations.rename
+          - POST /conversations.setPurpose
+          - POST /conversations.setTopic
+          - POST /conversations.unarchive
+      - name: groups:write.invites
+        description: Slack scope "groups:write.invites"
+        rules:
+          - POST /conversations.invite
+      - name: groups:write.topic
+        description: Slack scope "groups:write.topic"
+        rules:
+          - POST /conversations.setPurpose
+          - POST /conversations.setTopic
+      - name: hosting:read
+        description: Slack scope "hosting:read"
+        rules:
+          - POST /apps.activities.list
+      - name: identity:read
+        description: Slack scope "identity:read"
+        rules:
+          - POST /users.identity
+      - name: im:history
+        description: Slack scope "im:history"
+        rules:
+          - POST /conversations.history
+          - POST /conversations.replies
+      - name: im:read
+        description: Slack scope "im:read"
+        rules:
+          - POST /conversations.info
+          - POST /conversations.list
+          - POST /conversations.members
+          - POST /users.conversations
+      - name: im:write
+        description: Slack scope "im:write"
+        rules:
+          - POST /conversations.archive
+          - POST /conversations.close
+          - POST /conversations.create
+          - POST /conversations.invite
+          - POST /conversations.kick
+          - POST /conversations.leave
+          - POST /conversations.mark
+          - POST /conversations.open
+          - POST /conversations.rename
+          - POST /conversations.setPurpose
+          - POST /conversations.setTopic
+          - POST /conversations.unarchive
+      - name: im:write.topic
+        description: Slack scope "im:write.topic"
+        rules:
+          - POST /conversations.setPurpose
+          - POST /conversations.setTopic
+      - name: links:write
+        description: Slack scope "links:write"
+        rules:
+          - POST /chat.unfurl
+      - name: lists:read
+        description: Slack scope "lists:read"
+        rules:
+          - POST /slackLists.download.get
+          - POST /slackLists.download.start
+          - POST /slackLists.items.info
+          - POST /slackLists.items.list
+      - name: lists:write
+        description: Slack scope "lists:write"
+        rules:
+          - POST /slackLists.access.delete
+          - POST /slackLists.access.set
+          - POST /slackLists.create
+          - POST /slackLists.items.create
+          - POST /slackLists.items.delete
+          - POST /slackLists.items.deleteMultiple
+          - POST /slackLists.items.update
+          - POST /slackLists.update
+      - name: mpim:history
+        description: Slack scope "mpim:history"
+        rules:
+          - POST /conversations.history
+          - POST /conversations.replies
+      - name: mpim:read
+        description: Slack scope "mpim:read"
+        rules:
+          - POST /conversations.info
+          - POST /conversations.list
+          - POST /conversations.members
+          - POST /users.conversations
+      - name: mpim:write
+        description: Slack scope "mpim:write"
+        rules:
+          - POST /conversations.archive
+          - POST /conversations.close
+          - POST /conversations.create
+          - POST /conversations.invite
+          - POST /conversations.kick
+          - POST /conversations.leave
+          - POST /conversations.mark
+          - POST /conversations.open
+          - POST /conversations.rename
+          - POST /conversations.setPurpose
+          - POST /conversations.setTopic
+          - POST /conversations.unarchive
+      - name: mpim:write.topic
+        description: Slack scope "mpim:write.topic"
+        rules:
+          - POST /conversations.setPurpose
+          - POST /conversations.setTopic
+      - name: openid
+        description: Slack scope "openid"
+        rules:
+          - POST /openid.connect.userInfo
+      - name: pins:read
+        description: Slack scope "pins:read"
+        rules:
+          - POST /pins.list
+      - name: pins:write
+        description: Slack scope "pins:write"
+        rules:
+          - POST /pins.add
+          - POST /pins.remove
+      - name: reactions:read
+        description: Slack scope "reactions:read"
+        rules:
+          - POST /reactions.get
+          - POST /reactions.list
+      - name: reactions:write
+        description: Slack scope "reactions:write"
+        rules:
+          - POST /reactions.add
+          - POST /reactions.remove
+      - name: reminders:read
+        description: Slack scope "reminders:read"
+        rules:
+          - POST /reminders.info
+          - POST /reminders.list
+      - name: reminders:write
+        description: Slack scope "reminders:write"
+        rules:
+          - POST /reminders.add
+          - POST /reminders.complete
+          - POST /reminders.delete
+      - name: remote_files:read
+        description: Slack scope "remote_files:read"
+        rules:
+          - POST /files.remote.info
+          - POST /files.remote.list
+      - name: remote_files:share
+        description: Slack scope "remote_files:share"
+        rules:
+          - POST /files.remote.share
+      - name: remote_files:write
+        description: Slack scope "remote_files:write"
+        rules:
+          - POST /files.remote.add
+          - POST /files.remote.remove
+          - POST /files.remote.update
+      - name: search:read
+        description: Slack scope "search:read"
+        rules:
+          - POST /assistant.search.info
+          - POST /search.all
+          - POST /search.files
+          - POST /search.messages
+      - name: search:read.files
+        description: Slack scope "search:read.files"
+        rules:
+          - POST /assistant.search.context
+      - name: search:read.im
+        description: Slack scope "search:read.im"
+        rules:
+          - POST /assistant.search.context
+      - name: search:read.mpim
+        description: Slack scope "search:read.mpim"
+        rules:
+          - POST /assistant.search.context
+      - name: search:read.private
+        description: Slack scope "search:read.private"
+        rules:
+          - POST /assistant.search.context
+      - name: search:read.public
+        description: Slack scope "search:read.public"
+        rules:
+          - POST /assistant.search.context
+          - POST /assistant.search.info
+      - name: search:read.users
+        description: Slack scope "search:read.users"
+        rules:
+          - POST /assistant.search.context
+      - name: stars:read
+        description: Slack scope "stars:read"
+        rules:
+          - POST /stars.list
+      - name: stars:write
+        description: Slack scope "stars:write"
+        rules:
+          - POST /stars.add
+          - POST /stars.remove
+      - name: team.billing:read
+        description: Slack scope "team.billing:read"
+        rules:
+          - POST /team.billing.info
+      - name: team.preferences:read
+        description: Slack scope "team.preferences:read"
+        rules:
+          - POST /team.preferences.list
+      - name: team:read
+        description: Slack scope "team:read"
+        rules:
+          - POST /team.externalTeams.list
+          - POST /team.info
+          - POST /users.discoverableContacts.lookup
+      - name: tokens.basic
+        description: Slack scope "tokens.basic"
+        rules:
+          - POST /migration.exchange
+      - name: triggers:read
+        description: Slack scope "triggers:read"
+        rules:
+          - POST /workflows.triggers.permissions.list
+      - name: triggers:write
+        description: Slack scope "triggers:write"
+        rules:
+          - POST /workflows.triggers.permissions.add
+          - POST /workflows.triggers.permissions.remove
+          - POST /workflows.triggers.permissions.set
+      - name: usergroups:read
+        description: Slack scope "usergroups:read"
+        rules:
+          - POST /usergroups.list
+          - POST /usergroups.users.list
+      - name: usergroups:write
+        description: Slack scope "usergroups:write"
+        rules:
+          - POST /usergroups.create
+          - POST /usergroups.disable
+          - POST /usergroups.enable
+          - POST /usergroups.update
+          - POST /usergroups.users.update
+      - name: users.profile:read
+        description: Slack scope "users.profile:read"
+        rules:
+          - POST /team.profile.get
+          - POST /users.profile.get
+      - name: users.profile:write
+        description: Slack scope "users.profile:write"
+        rules:
+          - POST /users.deletePhoto
+          - POST /users.profile.set
+          - POST /users.setPhoto
+      - name: users:read
+        description: Slack scope "users:read"
+        rules:
+          - POST /bots.info
+          - POST /users.getPresence
+          - POST /users.info
+          - POST /users.list
+      - name: users:read.email
+        description: Slack scope "users:read.email"
+        rules:
+          - POST /users.lookupByEmail
+      - name: users:write
+        description: Slack scope "users:write"
+        rules:
+          - POST /apps.user.connection.update
+          - POST /users.setActive
+          - POST /users.setPresence
+      - name: no_scopes_required
+        description: Methods that require a valid token but no specific scope
+        rules:
+          - POST /api.test
+          - POST /apps.auth.external.delete
+          - POST /apps.auth.external.get
+          - POST /apps.connections.open
+          - POST /apps.event.authorizations.list
+          - POST /apps.manifest.create
+          - POST /apps.manifest.delete
+          - POST /apps.manifest.export
+          - POST /apps.manifest.update
+          - POST /apps.manifest.validate
+          - POST /apps.uninstall
+          - POST /auth.revoke
+          - POST /auth.teams.list
+          - POST /auth.test
+          - POST /chat.getPermalink
+          - POST /chat.scheduledMessages.list
+          - POST /dialog.open
+          - POST /functions.completeError
+          - POST /functions.completeSuccess
+          - POST /functions.distributions.permissions.add
+          - POST /functions.distributions.permissions.list
+          - POST /functions.distributions.permissions.remove
+          - POST /functions.distributions.permissions.set
+          - POST /functions.workflows.steps.list
+          - POST /functions.workflows.steps.responses.export
+          - POST /oauth.access
+          - POST /oauth.v2.access
+          - POST /oauth.v2.exchange
+          - POST /oauth.v2.user.access
+          - POST /openid.connect.token
+          - POST /rtm.connect
+          - POST /rtm.start
+          - POST /tooling.tokens.rotate
+          - POST /views.open
+          - POST /views.publish
+          - POST /views.push
+          - POST /views.update
   - base: https://files.slack.com
     auth:
       headers:
         Authorization: "Bearer ${{ secrets.SLACK_TOKEN }}"
     permissions:
-      - name: full-access
+      - name: files:read
+        description: Download files from Slack
         rules:
-          - ANY /{path+}
+          - GET /{path+}
