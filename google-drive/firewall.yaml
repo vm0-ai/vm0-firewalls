@@ -1,0 +1,263 @@
+# Auto-generated from Google's Discovery API.
+# Source: https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+# Regenerate: python3 google-drive/generate.py
+name: google-drive
+description: Google Drive API
+placeholders:
+  GOOGLE_DRIVE_TOKEN: "ya29.Vm0PlaceHolder000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+apis:
+  - base: https://www.googleapis.com/drive/v3
+    auth:
+      headers:
+        Authorization: "Bearer ${{ secrets.GOOGLE_DRIVE_TOKEN }}"
+    permissions:
+      - name: drive
+        description: See, edit, create, and delete all of your Google Drive files
+        rules:
+          - GET /about
+          - GET /apps/{appId}
+          - GET /changes
+          - GET /changes/startPageToken
+          - POST /changes/watch
+          - POST /channels/stop
+          - GET /drives
+          - POST /drives
+          - GET /drives/{driveId}
+          - PATCH /drives/{driveId}
+          - DELETE /drives/{driveId}
+          - POST /drives/{driveId}/hide
+          - POST /drives/{driveId}/unhide
+          - GET /files
+          - POST /files
+          - GET /files/generateIds
+          - DELETE /files/trash
+          - GET /files/{fileId}
+          - PATCH /files/{fileId}
+          - DELETE /files/{fileId}
+          - GET /files/{fileId}/accessproposals
+          - GET /files/{fileId}/accessproposals/{proposalId}
+          - POST /files/{fileId}/accessproposals/{proposalId}:resolve
+          - GET /files/{fileId}/approvals
+          - GET /files/{fileId}/approvals/{approvalId}
+          - GET /files/{fileId}/comments
+          - POST /files/{fileId}/comments
+          - GET /files/{fileId}/comments/{commentId}
+          - PATCH /files/{fileId}/comments/{commentId}
+          - DELETE /files/{fileId}/comments/{commentId}
+          - GET /files/{fileId}/comments/{commentId}/replies
+          - POST /files/{fileId}/comments/{commentId}/replies
+          - GET /files/{fileId}/comments/{commentId}/replies/{replyId}
+          - PATCH /files/{fileId}/comments/{commentId}/replies/{replyId}
+          - DELETE /files/{fileId}/comments/{commentId}/replies/{replyId}
+          - POST /files/{fileId}/copy
+          - POST /files/{fileId}/download
+          - GET /files/{fileId}/export
+          - GET /files/{fileId}/listLabels
+          - POST /files/{fileId}/modifyLabels
+          - GET /files/{fileId}/permissions
+          - POST /files/{fileId}/permissions
+          - GET /files/{fileId}/permissions/{permissionId}
+          - PATCH /files/{fileId}/permissions/{permissionId}
+          - DELETE /files/{fileId}/permissions/{permissionId}
+          - GET /files/{fileId}/revisions
+          - GET /files/{fileId}/revisions/{revisionId}
+          - PATCH /files/{fileId}/revisions/{revisionId}
+          - DELETE /files/{fileId}/revisions/{revisionId}
+          - POST /files/{fileId}/watch
+          - GET /operations/{name}
+          - GET /teamdrives
+          - POST /teamdrives
+          - GET /teamdrives/{teamDriveId}
+          - PATCH /teamdrives/{teamDriveId}
+          - DELETE /teamdrives/{teamDriveId}
+      - name: drive.appdata
+        description: See, create, and delete its own configuration data in your Google Drive
+        rules:
+          - GET /about
+          - GET /apps/{appId}
+          - GET /changes
+          - GET /changes/startPageToken
+          - POST /changes/watch
+          - POST /channels/stop
+          - GET /files
+          - POST /files
+          - GET /files/generateIds
+          - GET /files/{fileId}
+          - PATCH /files/{fileId}
+          - DELETE /files/{fileId}
+          - GET /files/{fileId}/approvals
+          - GET /files/{fileId}/approvals/{approvalId}
+          - POST /files/{fileId}/copy
+          - GET /files/{fileId}/revisions
+          - GET /files/{fileId}/revisions/{revisionId}
+          - PATCH /files/{fileId}/revisions/{revisionId}
+          - DELETE /files/{fileId}/revisions/{revisionId}
+          - POST /files/{fileId}/watch
+      - name: drive.apps.readonly
+        description: View your Google Drive apps
+        rules:
+          - GET /apps
+          - GET /apps/{appId}
+      - name: drive.file
+        description: See, edit, create, and delete only the specific Google Drive files you use with this app
+        rules:
+          - GET /about
+          - GET /apps/{appId}
+          - GET /changes
+          - GET /changes/startPageToken
+          - POST /changes/watch
+          - POST /channels/stop
+          - GET /files
+          - POST /files
+          - GET /files/generateIds
+          - GET /files/{fileId}
+          - PATCH /files/{fileId}
+          - DELETE /files/{fileId}
+          - GET /files/{fileId}/accessproposals
+          - GET /files/{fileId}/accessproposals/{proposalId}
+          - POST /files/{fileId}/accessproposals/{proposalId}:resolve
+          - GET /files/{fileId}/approvals
+          - GET /files/{fileId}/approvals/{approvalId}
+          - GET /files/{fileId}/comments
+          - POST /files/{fileId}/comments
+          - GET /files/{fileId}/comments/{commentId}
+          - PATCH /files/{fileId}/comments/{commentId}
+          - DELETE /files/{fileId}/comments/{commentId}
+          - GET /files/{fileId}/comments/{commentId}/replies
+          - POST /files/{fileId}/comments/{commentId}/replies
+          - GET /files/{fileId}/comments/{commentId}/replies/{replyId}
+          - PATCH /files/{fileId}/comments/{commentId}/replies/{replyId}
+          - DELETE /files/{fileId}/comments/{commentId}/replies/{replyId}
+          - POST /files/{fileId}/copy
+          - POST /files/{fileId}/download
+          - GET /files/{fileId}/export
+          - GET /files/{fileId}/listLabels
+          - POST /files/{fileId}/modifyLabels
+          - GET /files/{fileId}/permissions
+          - POST /files/{fileId}/permissions
+          - GET /files/{fileId}/permissions/{permissionId}
+          - PATCH /files/{fileId}/permissions/{permissionId}
+          - DELETE /files/{fileId}/permissions/{permissionId}
+          - GET /files/{fileId}/revisions
+          - GET /files/{fileId}/revisions/{revisionId}
+          - PATCH /files/{fileId}/revisions/{revisionId}
+          - DELETE /files/{fileId}/revisions/{revisionId}
+          - POST /files/{fileId}/watch
+          - GET /operations/{name}
+      - name: drive.meet.readonly
+        description: See and download your Google Drive files that were created or edited by Google Meet.
+        rules:
+          - GET /changes
+          - GET /changes/startPageToken
+          - POST /changes/watch
+          - POST /channels/stop
+          - GET /files
+          - GET /files/{fileId}
+          - GET /files/{fileId}/comments
+          - GET /files/{fileId}/comments/{commentId}
+          - GET /files/{fileId}/comments/{commentId}/replies
+          - GET /files/{fileId}/comments/{commentId}/replies/{replyId}
+          - GET /files/{fileId}/export
+          - GET /files/{fileId}/listLabels
+          - GET /files/{fileId}/permissions
+          - GET /files/{fileId}/permissions/{permissionId}
+          - GET /files/{fileId}/revisions
+          - GET /files/{fileId}/revisions/{revisionId}
+          - POST /files/{fileId}/watch
+          - GET /operations/{name}
+      - name: drive.metadata
+        description: View and manage metadata of files in your Google Drive
+        rules:
+          - GET /about
+          - GET /apps/{appId}
+          - GET /changes
+          - GET /changes/startPageToken
+          - POST /changes/watch
+          - POST /channels/stop
+          - GET /files
+          - GET /files/{fileId}
+          - PATCH /files/{fileId}
+          - GET /files/{fileId}/accessproposals
+          - GET /files/{fileId}/accessproposals/{proposalId}
+          - GET /files/{fileId}/approvals
+          - GET /files/{fileId}/approvals/{approvalId}
+          - GET /files/{fileId}/listLabels
+          - POST /files/{fileId}/modifyLabels
+          - GET /files/{fileId}/permissions
+          - GET /files/{fileId}/permissions/{permissionId}
+          - GET /files/{fileId}/revisions
+          - GET /files/{fileId}/revisions/{revisionId}
+          - POST /files/{fileId}/watch
+      - name: drive.metadata.readonly
+        description: See information about your Google Drive files
+        rules:
+          - GET /about
+          - GET /apps/{appId}
+          - GET /changes
+          - GET /changes/startPageToken
+          - POST /changes/watch
+          - POST /channels/stop
+          - GET /files
+          - GET /files/{fileId}
+          - GET /files/{fileId}/accessproposals
+          - GET /files/{fileId}/accessproposals/{proposalId}
+          - GET /files/{fileId}/approvals
+          - GET /files/{fileId}/approvals/{approvalId}
+          - GET /files/{fileId}/listLabels
+          - GET /files/{fileId}/permissions
+          - GET /files/{fileId}/permissions/{permissionId}
+          - GET /files/{fileId}/revisions
+          - GET /files/{fileId}/revisions/{revisionId}
+          - POST /files/{fileId}/watch
+      - name: drive.photos.readonly
+        description: View the photos, videos and albums in your Google Photos
+        rules:
+          - GET /about
+          - GET /changes
+          - GET /changes/startPageToken
+          - POST /changes/watch
+          - POST /channels/stop
+          - GET /files
+          - GET /files/{fileId}
+          - POST /files/{fileId}/copy
+          - GET /files/{fileId}/permissions
+          - GET /files/{fileId}/permissions/{permissionId}
+          - GET /files/{fileId}/revisions
+          - GET /files/{fileId}/revisions/{revisionId}
+          - POST /files/{fileId}/watch
+      - name: drive.readonly
+        description: See and download all your Google Drive files
+        rules:
+          - GET /about
+          - GET /apps/{appId}
+          - GET /changes
+          - GET /changes/startPageToken
+          - POST /changes/watch
+          - POST /channels/stop
+          - GET /drives
+          - GET /drives/{driveId}
+          - GET /files
+          - GET /files/{fileId}
+          - GET /files/{fileId}/accessproposals
+          - GET /files/{fileId}/accessproposals/{proposalId}
+          - GET /files/{fileId}/approvals
+          - GET /files/{fileId}/approvals/{approvalId}
+          - GET /files/{fileId}/comments
+          - GET /files/{fileId}/comments/{commentId}
+          - GET /files/{fileId}/comments/{commentId}/replies
+          - GET /files/{fileId}/comments/{commentId}/replies/{replyId}
+          - POST /files/{fileId}/download
+          - GET /files/{fileId}/export
+          - GET /files/{fileId}/listLabels
+          - GET /files/{fileId}/permissions
+          - GET /files/{fileId}/permissions/{permissionId}
+          - GET /files/{fileId}/revisions
+          - GET /files/{fileId}/revisions/{revisionId}
+          - POST /files/{fileId}/watch
+          - GET /operations/{name}
+          - GET /teamdrives
+          - GET /teamdrives/{teamDriveId}
+      - name: drive.scripts
+        description: Modify your Google Apps Script scripts' behavior
+        rules:
+          - PATCH /files/{fileId}

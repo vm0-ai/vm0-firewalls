@@ -1,0 +1,224 @@
+# Auto-generated from Google's Discovery API.
+# Source: https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest
+# Regenerate: python3 google-calendar/generate.py
+name: google-calendar
+description: Google Calendar API
+placeholders:
+  GOOGLE_CALENDAR_TOKEN: "ya29.Vm0PlaceHolder000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+apis:
+  - base: https://www.googleapis.com/calendar/v3
+    auth:
+      headers:
+        Authorization: "Bearer ${{ secrets.GOOGLE_CALENDAR_TOKEN }}"
+    permissions:
+      - name: calendar
+        description: See, edit, share, and permanently delete all the calendars you can access using Google Calendar
+        rules:
+          - POST /calendars
+          - GET /calendars/{calendarId}
+          - PUT /calendars/{calendarId}
+          - PATCH /calendars/{calendarId}
+          - DELETE /calendars/{calendarId}
+          - GET /calendars/{calendarId}/acl
+          - POST /calendars/{calendarId}/acl
+          - POST /calendars/{calendarId}/acl/watch
+          - GET /calendars/{calendarId}/acl/{ruleId}
+          - PUT /calendars/{calendarId}/acl/{ruleId}
+          - PATCH /calendars/{calendarId}/acl/{ruleId}
+          - DELETE /calendars/{calendarId}/acl/{ruleId}
+          - POST /calendars/{calendarId}/clear
+          - GET /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events/import
+          - POST /calendars/{calendarId}/events/quickAdd
+          - POST /calendars/{calendarId}/events/watch
+          - GET /calendars/{calendarId}/events/{eventId}
+          - PUT /calendars/{calendarId}/events/{eventId}
+          - PATCH /calendars/{calendarId}/events/{eventId}
+          - DELETE /calendars/{calendarId}/events/{eventId}
+          - GET /calendars/{calendarId}/events/{eventId}/instances
+          - POST /calendars/{calendarId}/events/{eventId}/move
+          - POST /channels/stop
+          - GET /colors
+          - POST /freeBusy
+          - GET /users/me/calendarList
+          - POST /users/me/calendarList
+          - POST /users/me/calendarList/watch
+          - GET /users/me/calendarList/{calendarId}
+          - PUT /users/me/calendarList/{calendarId}
+          - PATCH /users/me/calendarList/{calendarId}
+          - DELETE /users/me/calendarList/{calendarId}
+          - GET /users/me/settings
+          - POST /users/me/settings/watch
+          - GET /users/me/settings/{setting}
+      - name: calendar.acls
+        description: See and change the sharing permissions of Google calendars you own
+        rules:
+          - GET /calendars/{calendarId}/acl
+          - POST /calendars/{calendarId}/acl
+          - POST /calendars/{calendarId}/acl/watch
+          - GET /calendars/{calendarId}/acl/{ruleId}
+          - PUT /calendars/{calendarId}/acl/{ruleId}
+          - PATCH /calendars/{calendarId}/acl/{ruleId}
+          - DELETE /calendars/{calendarId}/acl/{ruleId}
+          - POST /channels/stop
+      - name: calendar.acls.readonly
+        description: See the sharing permissions of Google calendars you own
+        rules:
+          - GET /calendars/{calendarId}/acl
+          - POST /calendars/{calendarId}/acl/watch
+          - GET /calendars/{calendarId}/acl/{ruleId}
+          - POST /channels/stop
+      - name: calendar.app.created
+        description: Make secondary Google calendars, and see, create, change, and delete events on them
+        rules:
+          - POST /calendars
+          - GET /calendars/{calendarId}
+          - PUT /calendars/{calendarId}
+          - PATCH /calendars/{calendarId}
+          - DELETE /calendars/{calendarId}
+          - GET /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events/import
+          - POST /calendars/{calendarId}/events/quickAdd
+          - POST /calendars/{calendarId}/events/watch
+          - GET /calendars/{calendarId}/events/{eventId}
+          - PUT /calendars/{calendarId}/events/{eventId}
+          - PATCH /calendars/{calendarId}/events/{eventId}
+          - DELETE /calendars/{calendarId}/events/{eventId}
+          - GET /calendars/{calendarId}/events/{eventId}/instances
+          - POST /channels/stop
+          - GET /colors
+          - GET /users/me/calendarList/{calendarId}
+          - PUT /users/me/calendarList/{calendarId}
+          - PATCH /users/me/calendarList/{calendarId}
+          - DELETE /users/me/calendarList/{calendarId}
+      - name: calendar.calendarlist
+        description: See, add, and remove Google calendars you’re subscribed to
+        rules:
+          - POST /channels/stop
+          - GET /colors
+          - GET /users/me/calendarList
+          - POST /users/me/calendarList
+          - POST /users/me/calendarList/watch
+          - GET /users/me/calendarList/{calendarId}
+          - PUT /users/me/calendarList/{calendarId}
+          - PATCH /users/me/calendarList/{calendarId}
+          - DELETE /users/me/calendarList/{calendarId}
+      - name: calendar.calendarlist.readonly
+        description: See the list of Google calendars you’re subscribed to
+        rules:
+          - POST /channels/stop
+          - GET /colors
+          - GET /users/me/calendarList
+          - POST /users/me/calendarList/watch
+          - GET /users/me/calendarList/{calendarId}
+      - name: calendar.calendars
+        description: See and change the properties of Google calendars you have access to, and create secondary calendars
+        rules:
+          - POST /calendars
+          - GET /calendars/{calendarId}
+          - PUT /calendars/{calendarId}
+          - PATCH /calendars/{calendarId}
+          - DELETE /calendars/{calendarId}
+          - POST /calendars/{calendarId}/clear
+      - name: calendar.calendars.readonly
+        description: See the title, description, default time zone, and other properties of Google calendars you have access to
+        rules:
+          - GET /calendars/{calendarId}
+      - name: calendar.events
+        description: View and edit events on all your calendars
+        rules:
+          - GET /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events/import
+          - POST /calendars/{calendarId}/events/quickAdd
+          - POST /calendars/{calendarId}/events/watch
+          - GET /calendars/{calendarId}/events/{eventId}
+          - PUT /calendars/{calendarId}/events/{eventId}
+          - PATCH /calendars/{calendarId}/events/{eventId}
+          - DELETE /calendars/{calendarId}/events/{eventId}
+          - GET /calendars/{calendarId}/events/{eventId}/instances
+          - POST /calendars/{calendarId}/events/{eventId}/move
+          - POST /channels/stop
+      - name: calendar.events.freebusy
+        description: See the availability on Google calendars you have access to
+        rules:
+          - GET /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events/watch
+          - GET /calendars/{calendarId}/events/{eventId}
+          - GET /calendars/{calendarId}/events/{eventId}/instances
+          - POST /channels/stop
+          - GET /colors
+          - POST /freeBusy
+      - name: calendar.events.owned
+        description: See, create, change, and delete events on Google calendars you own
+        rules:
+          - GET /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events/import
+          - POST /calendars/{calendarId}/events/quickAdd
+          - POST /calendars/{calendarId}/events/watch
+          - GET /calendars/{calendarId}/events/{eventId}
+          - PUT /calendars/{calendarId}/events/{eventId}
+          - PATCH /calendars/{calendarId}/events/{eventId}
+          - DELETE /calendars/{calendarId}/events/{eventId}
+          - GET /calendars/{calendarId}/events/{eventId}/instances
+          - POST /calendars/{calendarId}/events/{eventId}/move
+          - POST /channels/stop
+          - GET /colors
+      - name: calendar.events.owned.readonly
+        description: See the events on Google calendars you own
+        rules:
+          - GET /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events/watch
+          - GET /calendars/{calendarId}/events/{eventId}
+          - GET /calendars/{calendarId}/events/{eventId}/instances
+          - POST /channels/stop
+          - GET /colors
+      - name: calendar.events.public.readonly
+        description: See the events on public calendars
+        rules:
+          - GET /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events/watch
+          - GET /calendars/{calendarId}/events/{eventId}
+          - GET /calendars/{calendarId}/events/{eventId}/instances
+          - POST /channels/stop
+          - GET /colors
+      - name: calendar.events.readonly
+        description: View events on all your calendars
+        rules:
+          - GET /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events/watch
+          - GET /calendars/{calendarId}/events/{eventId}
+          - GET /calendars/{calendarId}/events/{eventId}/instances
+          - POST /channels/stop
+      - name: calendar.freebusy
+        description: View your availability in your calendars
+        rules:
+          - POST /freeBusy
+      - name: calendar.readonly
+        description: See and download any calendar you can access using your Google Calendar
+        rules:
+          - GET /calendars/{calendarId}
+          - GET /calendars/{calendarId}/acl/{ruleId}
+          - GET /calendars/{calendarId}/events
+          - POST /calendars/{calendarId}/events/watch
+          - GET /calendars/{calendarId}/events/{eventId}
+          - GET /calendars/{calendarId}/events/{eventId}/instances
+          - POST /channels/stop
+          - GET /colors
+          - POST /freeBusy
+          - GET /users/me/calendarList
+          - POST /users/me/calendarList/watch
+          - GET /users/me/calendarList/{calendarId}
+          - GET /users/me/settings
+          - POST /users/me/settings/watch
+          - GET /users/me/settings/{setting}
+      - name: calendar.settings.readonly
+        description: View your Calendar settings
+        rules:
+          - POST /channels/stop
+          - GET /users/me/settings
+          - POST /users/me/settings/watch
+          - GET /users/me/settings/{setting}

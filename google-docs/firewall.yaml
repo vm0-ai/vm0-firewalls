@@ -1,0 +1,39 @@
+# Auto-generated from Google's Discovery API.
+# Source: https://docs.googleapis.com/$discovery/rest?version=v1
+# Regenerate: python3 google-docs/generate.py
+name: google-docs
+description: Google Docs API
+placeholders:
+  GOOGLE_DOCS_TOKEN: "ya29.Vm0PlaceHolder000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+apis:
+  - base: https://docs.googleapis.com/v1
+    auth:
+      headers:
+        Authorization: "Bearer ${{ secrets.GOOGLE_DOCS_TOKEN }}"
+    permissions:
+      - name: documents
+        description: See, edit, create, and delete all your Google Docs documents
+        rules:
+          - POST /documents
+          - GET /documents/{documentId}
+          - POST /documents/{documentId}:batchUpdate
+      - name: documents.readonly
+        description: See all your Google Docs documents
+        rules:
+          - GET /documents/{documentId}
+      - name: drive
+        description: See, edit, create, and delete all of your Google Drive files
+        rules:
+          - POST /documents
+          - GET /documents/{documentId}
+          - POST /documents/{documentId}:batchUpdate
+      - name: drive.file
+        description: See, edit, create, and delete only the specific Google Drive files you use with this app
+        rules:
+          - POST /documents
+          - GET /documents/{documentId}
+          - POST /documents/{documentId}:batchUpdate
+      - name: drive.readonly
+        description: See and download all your Google Drive files
+        rules:
+          - GET /documents/{documentId}
