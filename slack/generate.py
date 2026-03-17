@@ -12,9 +12,10 @@ Path:       docs.slack.dev/methods/*.json
 Each method JSON file contains:
     { "scope": { "bot": ["chat:write"], "user": ["chat:write"] }, ... }
 
-We group methods by bot scope to generate firewall permission groups.
-Methods with no scope (like auth.test, oauth.*) are included in a
-"no_scopes_required" group since they still require a valid token.
+We group methods by scope (bot and user union) to generate firewall
+permission groups.  Methods with no scope (like auth.test, oauth.*)
+are included in a "no_scopes_required" group since they still require
+a valid token.
 
 Usage:
     python3 slack/generate.py
@@ -85,12 +86,16 @@ def build_groups(methods):
     for method_name, data in methods.items():
         scope = data.get("scope", {})
         if not isinstance(scope, dict):
+            print(f'  Warning: skipping "{method_name}" (invalid scope: {scope!r})', file=sys.stderr)
             continue
 
         bot_scopes = scope.get("bot", [])
         user_scopes = scope.get("user", [])
         all_scopes = set(bot_scopes) | set(user_scopes)
-        rule = f"POST /{method_name}"
+        http_method = data.get("http_method")
+        if not http_method:
+            raise ValueError(f'Method "{method_name}" missing http_method')
+        rule = f"{http_method.upper()} /{method_name}"
 
         if not all_scopes:
             groups["no_scopes_required"].add(rule)
@@ -105,13 +110,20 @@ def build_groups(methods):
 # ── YAML generation ───────────────────────────────────────────────────────
 
 
+_METHOD_ORDER = {"GET": 0, "HEAD": 1, "POST": 2, "PUT": 3, "PATCH": 4, "DELETE": 5}
+
+
+def _rule_key(rule):
+    method, path = rule.split(" ", 1)
+    return (path, _METHOD_ORDER.get(method, 9))
+
+
 def _ordered_names(groups):
     """Order: regular scopes sorted, then no_scopes_required at the end."""
-    regular = sorted(k for k in groups if k != "no_scopes_required")
-    result = regular
+    ordered = sorted(k for k in groups if k != "no_scopes_required")
     if "no_scopes_required" in groups:
-        result.append("no_scopes_required")
-    return result
+        ordered.append("no_scopes_required")
+    return ordered
 
 
 def render_yaml(groups):
@@ -132,14 +144,10 @@ def render_yaml(groups):
     ]
 
     for scope_name in _ordered_names(groups):
-        rules = sorted(groups[scope_name])
-        name = scope_name
+        rules = sorted(groups[scope_name], key=_rule_key)
+        lines.append(f"      - name: {scope_name}")
         if scope_name == "no_scopes_required":
-            desc = "Methods that require a valid token but no specific scope"
-        else:
-            desc = f'Slack scope "{scope_name}"'
-        lines.append(f"      - name: {name}")
-        lines.append(f"        description: {desc}")
+            lines.append("        description: Methods that require a valid token but no specific scope")
         lines.append("        rules:")
         for r in rules:
             lines.append(f"          - {r}")

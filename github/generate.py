@@ -79,7 +79,7 @@ def _convert_path(path):
 
 
 def build_groups(perms_data):
-    """Group endpoints into {perm-read/perm-write: set(rules)}.
+    """Group endpoints into {perm_key:access: set(rules)}.
 
     An endpoint may appear in multiple permission groups — this is correct.
     GitHub's model allows any of the listed permissions to grant access,
@@ -95,9 +95,14 @@ def build_groups(perms_data):
         display_title = entry.get("displayTitle", "")
 
         for ep in entry.get("permissions", []):
-            verb = ep["verb"]
-            path = ep["requestPath"]
-            access = ep["access"]
+            verb = ep.get("verb")
+            path = ep.get("requestPath")
+            access = ep.get("access")
+            if not verb or not path or not access:
+                raise ValueError(
+                    f"Endpoint missing verb/requestPath/access in permission "
+                    f'"{perm_key}": {ep}'
+                )
             group_name = f"{perm_key}:{access}"
             fw_path = _convert_path(path)
             rule = f"{verb.upper()} {fw_path}"
@@ -176,7 +181,7 @@ def render_yaml(groups, descriptions, perms_data):
         "      headers:",
         '        Authorization: "Bearer ${{ secrets.GITHUB_TOKEN }}"',
         "    permissions:",
-        "      - name: contents-write",
+        "      - name: contents:write",
         "        description: Upload release assets",
         "        rules:",
         "          - POST /repos/{owner}/{repo}/releases/{release_id}/assets",

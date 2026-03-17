@@ -1354,7 +1354,7 @@ apis:
       headers:
         Authorization: "Bearer ${{ secrets.GITHUB_TOKEN }}"
     permissions:
-      - name: contents-write
+      - name: contents:write
         description: Upload release assets
         rules:
           - POST /repos/{owner}/{repo}/releases/{release_id}/assets
