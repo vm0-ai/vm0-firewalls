@@ -12,7 +12,7 @@ apis:
       headers:
         Authorization: "Bearer ${{ secrets.GITHUB_TOKEN }}"
     permissions:
-      - name: enterprise-teams-read
+      - name: enterprise_teams:read
         description: Enterprise permissions for "Enterprise teams"
         rules:
           - GET /enterprises/{enterprise}/teams
@@ -21,7 +21,7 @@ apis:
           - GET /enterprises/{enterprise}/teams/{enterprise-team}/organizations
           - GET /enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}
           - GET /enterprises/{enterprise}/teams/{team_slug}
-      - name: enterprise-teams-write
+      - name: enterprise_teams:write
         description: Enterprise permissions for "Enterprise teams"
         rules:
           - POST /enterprises/{enterprise}/teams
@@ -35,7 +35,7 @@ apis:
           - DELETE /enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}
           - PATCH /enterprises/{enterprise}/teams/{team_slug}
           - DELETE /enterprises/{enterprise}/teams/{team_slug}
-      - name: organization-api-insights-read
+      - name: organization_api_insights:read
         description: Organization permissions for "API Insights"
         rules:
           - GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}
@@ -47,7 +47,7 @@ apis:
           - GET /orgs/{org}/insights/api/time-stats/users/{user_id}
           - GET /orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}
           - GET /orgs/{org}/insights/api/user-stats/{user_id}
-      - name: organization-administration-read
+      - name: organization_administration:read
         description: Organization permissions for "Administration"
         rules:
           - GET /organizations/{org}/actions/cache/retention-limit
@@ -93,7 +93,7 @@ apis:
           - GET /orgs/{org}/settings/immutable-releases
           - GET /orgs/{org}/settings/immutable-releases/repositories
           - GET /orgs/{org}/team/{team_slug}/copilot/metrics
-      - name: organization-administration-write
+      - name: organization_administration:write
         description: Organization permissions for "Administration"
         rules:
           - PUT /organizations/{org}/actions/cache/retention-limit
@@ -152,61 +152,61 @@ apis:
           - PUT /orgs/{org}/settings/immutable-releases/repositories/{repository_id}
           - DELETE /orgs/{org}/settings/immutable-releases/repositories/{repository_id}
           - POST /orgs/{org}/{security_product}/{enablement}
-      - name: organization-user-blocking-read
+      - name: organization_user_blocking:read
         description: Organization permissions for "Blocking users"
         rules:
           - GET /orgs/{org}/blocks
           - GET /orgs/{org}/blocks/{username}
-      - name: organization-user-blocking-write
+      - name: organization_user_blocking:write
         description: Organization permissions for "Blocking users"
         rules:
           - PUT /orgs/{org}/blocks/{username}
           - DELETE /orgs/{org}/blocks/{username}
-      - name: organization-campaigns-read
+      - name: organization_campaigns:read
         description: Organization permissions for "Campaigns"
         rules:
           - GET /orgs/{org}/campaigns
           - GET /orgs/{org}/campaigns/{campaign_number}
-      - name: organization-campaigns-write
+      - name: organization_campaigns:write
         description: Organization permissions for "Campaigns"
         rules:
           - POST /orgs/{org}/campaigns
           - PATCH /orgs/{org}/campaigns/{campaign_number}
           - DELETE /orgs/{org}/campaigns/{campaign_number}
-      - name: org-copilot-content-exclusion-read
+      - name: org_copilot_content_exclusion:read
         description: Organization permissions for "Copilot content exclusion"
         rules:
           - GET /orgs/{org}/copilot/content_exclusion
-      - name: org-copilot-content-exclusion-write
+      - name: org_copilot_content_exclusion:write
         description: Organization permissions for "Copilot content exclusion"
         rules:
           - PUT /orgs/{org}/copilot/content_exclusion
-      - name: organization-custom-org-roles-read
+      - name: organization_custom_org_roles:read
         description: Organization permissions for "Custom organization roles"
         rules:
           - GET /orgs/{org}/organization-roles
           - GET /orgs/{org}/organization-roles/{role_id}
-      - name: organization-custom-properties-read
+      - name: organization_custom_properties:read
         description: Organization permissions for "Custom properties"
         rules:
           - GET /orgs/{org}/properties/schema
           - GET /orgs/{org}/properties/schema/{custom_property_name}
           - GET /orgs/{org}/properties/values
-      - name: organization-custom-properties-write
+      - name: organization_custom_properties:write
         description: Organization permissions for "Custom properties"
         rules:
           - PATCH /orgs/{org}/properties/values
-      - name: organization-custom-properties-admin
+      - name: organization_custom_properties:admin
         description: Organization permissions for "Custom properties"
         rules:
           - PATCH /orgs/{org}/properties/schema
           - PUT /orgs/{org}/properties/schema/{custom_property_name}
           - DELETE /orgs/{org}/properties/schema/{custom_property_name}
-      - name: organization-events-read
+      - name: organization_events:read
         description: Organization permissions for "Events"
         rules:
           - GET /users/{username}/events/orgs/{org}
-      - name: organization-copilot-seat-management-read
+      - name: organization_copilot_seat_management:read
         description: Organization permissions for "GitHub Copilot Business"
         rules:
           - GET /orgs/{org}/copilot/billing
@@ -214,46 +214,46 @@ apis:
           - GET /orgs/{org}/copilot/metrics
           - GET /orgs/{org}/members/{username}/copilot
           - GET /orgs/{org}/team/{team_slug}/copilot/metrics
-      - name: organization-copilot-seat-management-write
+      - name: organization_copilot_seat_management:write
         description: Organization permissions for "GitHub Copilot Business"
         rules:
           - POST /orgs/{org}/copilot/billing/selected_teams
           - DELETE /orgs/{org}/copilot/billing/selected_teams
           - POST /orgs/{org}/copilot/billing/selected_users
           - DELETE /orgs/{org}/copilot/billing/selected_users
-      - name: organization-runner-custom-images-read
+      - name: organization_runner_custom_images:read
         description: Organization permissions for "Hosted runner custom images"
         rules:
           - GET /orgs/{org}/actions/hosted-runners/images/custom
           - GET /orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}
           - GET /orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions
           - GET /orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}
-      - name: organization-runner-custom-images-write
+      - name: organization_runner_custom_images:write
         description: Organization permissions for "Hosted runner custom images"
         rules:
           - DELETE /orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}
           - DELETE /orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}
-      - name: issue-fields-read
+      - name: issue_fields:read
         description: Organization permissions for "Issue Fields"
         rules:
           - GET /orgs/{org}/issue-fields
-      - name: issue-fields-write
+      - name: issue_fields:write
         description: Organization permissions for "Issue Fields"
         rules:
           - POST /orgs/{org}/issue-fields
           - PATCH /orgs/{org}/issue-fields/{issue_field_id}
           - DELETE /orgs/{org}/issue-fields/{issue_field_id}
-      - name: issue-types-read
+      - name: issue_types:read
         description: Organization permissions for "Issue Types"
         rules:
           - GET /orgs/{org}/issue-types
-      - name: issue-types-write
+      - name: issue_types:write
         description: Organization permissions for "Issue Types"
         rules:
           - POST /orgs/{org}/issue-types
           - PUT /orgs/{org}/issue-types/{issue_type_id}
           - DELETE /orgs/{org}/issue-types/{issue_type_id}
-      - name: members-read
+      - name: members:read
         description: Organization permissions for "Members"
         rules:
           - GET /orgs/{org}/failed_invitations
@@ -288,7 +288,7 @@ apis:
           - DELETE /teams/{team_id}/repos/{owner}/{repo}
           - GET /teams/{team_id}/teams
           - GET /user/memberships/orgs/{org}
-      - name: members-write
+      - name: members:write
         description: Organization permissions for "Members"
         rules:
           - POST /orgs/{org}/invitations
@@ -318,26 +318,26 @@ apis:
           - PUT /teams/{team_id}/memberships/{username}
           - DELETE /teams/{team_id}/memberships/{username}
           - PATCH /user/memberships/orgs/{org}
-      - name: organization-network-configurations-read
+      - name: organization_network_configurations:read
         description: Organization permissions for "Network configurations"
         rules:
           - GET /orgs/{org}/settings/network-configurations
           - GET /orgs/{org}/settings/network-configurations/{network_configuration_id}
           - GET /orgs/{org}/settings/network-settings/{network_settings_id}
-      - name: organization-network-configurations-write
+      - name: organization_network_configurations:write
         description: Organization permissions for "Network configurations"
         rules:
           - POST /orgs/{org}/settings/network-configurations
           - PATCH /orgs/{org}/settings/network-configurations/{network_configuration_id}
           - DELETE /orgs/{org}/settings/network-configurations/{network_configuration_id}
-      - name: organization-codespaces-secrets-read
+      - name: organization_codespaces_secrets:read
         description: Organization permissions for "Organization codespaces secrets"
         rules:
           - GET /orgs/{org}/codespaces/secrets
           - GET /orgs/{org}/codespaces/secrets/public-key
           - GET /orgs/{org}/codespaces/secrets/{secret_name}
           - GET /orgs/{org}/codespaces/secrets/{secret_name}/repositories
-      - name: organization-codespaces-secrets-write
+      - name: organization_codespaces_secrets:write
         description: Organization permissions for "Organization codespaces secrets"
         rules:
           - PUT /orgs/{org}/codespaces/secrets/{secret_name}
@@ -345,30 +345,30 @@ apis:
           - PUT /orgs/{org}/codespaces/secrets/{secret_name}/repositories
           - PUT /orgs/{org}/codespaces/secrets/{secret_name}/repositories/{repository_id}
           - DELETE /orgs/{org}/codespaces/secrets/{secret_name}/repositories/{repository_id}
-      - name: organization-codespaces-settings-write
+      - name: organization_codespaces_settings:write
         description: Organization permissions for "Organization codespaces settings"
         rules:
           - PUT /orgs/{org}/codespaces/access
           - POST /orgs/{org}/codespaces/access/selected_users
           - DELETE /orgs/{org}/codespaces/access/selected_users
-      - name: organization-codespaces-read
+      - name: organization_codespaces:read
         description: Organization permissions for "Organization codespaces"
         rules:
           - GET /orgs/{org}/codespaces
           - GET /orgs/{org}/members/{username}/codespaces
-      - name: organization-codespaces-write
+      - name: organization_codespaces:write
         description: Organization permissions for "Organization codespaces"
         rules:
           - DELETE /orgs/{org}/members/{username}/codespaces/{codespace_name}
           - POST /orgs/{org}/members/{username}/codespaces/{codespace_name}/stop
-      - name: organization-dependabot-secrets-read
+      - name: organization_dependabot_secrets:read
         description: Organization permissions for "Organization dependabot secrets"
         rules:
           - GET /orgs/{org}/dependabot/secrets
           - GET /orgs/{org}/dependabot/secrets/public-key
           - GET /orgs/{org}/dependabot/secrets/{secret_name}
           - GET /orgs/{org}/dependabot/secrets/{secret_name}/repositories
-      - name: organization-dependabot-secrets-write
+      - name: organization_dependabot_secrets:write
         description: Organization permissions for "Organization dependabot secrets"
         rules:
           - PUT /orgs/{org}/dependabot/secrets/{secret_name}
@@ -376,39 +376,39 @@ apis:
           - PUT /orgs/{org}/dependabot/secrets/{secret_name}/repositories
           - PUT /orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}
           - DELETE /orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}
-      - name: organization-private-registries-read
+      - name: organization_private_registries:read
         description: Organization permissions for "Organization private registries"
         rules:
           - GET /orgs/{org}/private-registries
           - GET /orgs/{org}/private-registries/public-key
           - GET /orgs/{org}/private-registries/{secret_name}
-      - name: organization-private-registries-write
+      - name: organization_private_registries:write
         description: Organization permissions for "Organization private registries"
         rules:
           - POST /orgs/{org}/private-registries
           - PATCH /orgs/{org}/private-registries/{secret_name}
           - DELETE /orgs/{org}/private-registries/{secret_name}
-      - name: organization-personal-access-token-requests-read
+      - name: organization_personal_access_token_requests:read
         description: Organization permissions for "Personal access token requests"
         rules:
           - GET /orgs/{org}/personal-access-token-requests
           - GET /orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories
-      - name: organization-personal-access-token-requests-write
+      - name: organization_personal_access_token_requests:write
         description: Organization permissions for "Personal access token requests"
         rules:
           - POST /orgs/{org}/personal-access-token-requests
           - POST /orgs/{org}/personal-access-token-requests/{pat_request_id}
-      - name: organization-personal-access-tokens-read
+      - name: organization_personal_access_tokens:read
         description: Organization permissions for "Personal access tokens"
         rules:
           - GET /orgs/{org}/personal-access-tokens
           - GET /orgs/{org}/personal-access-tokens/{pat_id}/repositories
-      - name: organization-personal-access-tokens-write
+      - name: organization_personal_access_tokens:write
         description: Organization permissions for "Personal access tokens"
         rules:
           - POST /orgs/{org}/personal-access-tokens
           - POST /orgs/{org}/personal-access-tokens/{pat_id}
-      - name: organization-projects-read
+      - name: organization_projects:read
         description: Organization permissions for "Projects"
         rules:
           - GET /orgs/{org}/projectsV2
@@ -418,7 +418,7 @@ apis:
           - GET /orgs/{org}/projectsV2/{project_number}/items
           - GET /orgs/{org}/projectsV2/{project_number}/items/{item_id}
           - GET /orgs/{org}/projectsV2/{project_number}/views/{view_number}/items
-      - name: organization-projects-write
+      - name: organization_projects:write
         description: Organization permissions for "Projects"
         rules:
           - POST /orgs/{org}/projectsV2/{project_number}/drafts
@@ -427,14 +427,14 @@ apis:
           - PATCH /orgs/{org}/projectsV2/{project_number}/items/{item_id}
           - DELETE /orgs/{org}/projectsV2/{project_number}/items/{item_id}
           - POST /orgs/{org}/projectsV2/{project_number}/views
-      - name: organization-secrets-read
+      - name: organization_secrets:read
         description: Organization permissions for "Secrets"
         rules:
           - GET /orgs/{org}/actions/secrets
           - GET /orgs/{org}/actions/secrets/public-key
           - GET /orgs/{org}/actions/secrets/{secret_name}
           - GET /orgs/{org}/actions/secrets/{secret_name}/repositories
-      - name: organization-secrets-write
+      - name: organization_secrets:write
         description: Organization permissions for "Secrets"
         rules:
           - PUT /orgs/{org}/actions/secrets/{secret_name}
@@ -442,7 +442,7 @@ apis:
           - PUT /orgs/{org}/actions/secrets/{secret_name}/repositories
           - PUT /orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}
           - DELETE /orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}
-      - name: organization-self-hosted-runners-read
+      - name: organization_self_hosted_runners:read
         description: Organization permissions for "Self-hosted runners"
         rules:
           - GET /orgs/{org}/actions/runner-groups
@@ -454,7 +454,7 @@ apis:
           - GET /orgs/{org}/actions/runners/downloads
           - GET /orgs/{org}/actions/runners/{runner_id}
           - GET /orgs/{org}/actions/runners/{runner_id}/labels
-      - name: organization-self-hosted-runners-write
+      - name: organization_self_hosted_runners:write
         description: Organization permissions for "Self-hosted runners"
         rules:
           - POST /orgs/{org}/actions/runner-groups
@@ -474,13 +474,13 @@ apis:
           - PUT /orgs/{org}/actions/runners/{runner_id}/labels
           - DELETE /orgs/{org}/actions/runners/{runner_id}/labels
           - DELETE /orgs/{org}/actions/runners/{runner_id}/labels/{name}
-      - name: organization-actions-variables-read
+      - name: organization_actions_variables:read
         description: Organization permissions for "Variables"
         rules:
           - GET /orgs/{org}/actions/variables
           - GET /orgs/{org}/actions/variables/{name}
           - GET /orgs/{org}/actions/variables/{name}/repositories
-      - name: organization-actions-variables-write
+      - name: organization_actions_variables:write
         description: Organization permissions for "Variables"
         rules:
           - POST /orgs/{org}/actions/variables
@@ -489,7 +489,7 @@ apis:
           - PUT /orgs/{org}/actions/variables/{name}/repositories
           - PUT /orgs/{org}/actions/variables/{name}/repositories/{repository_id}
           - DELETE /orgs/{org}/actions/variables/{name}/repositories/{repository_id}
-      - name: organization-hooks-read
+      - name: organization_hooks:read
         description: Organization permissions for "Webhooks"
         rules:
           - GET /orgs/{org}/hooks
@@ -497,7 +497,7 @@ apis:
           - GET /orgs/{org}/hooks/{hook_id}/config
           - GET /orgs/{org}/hooks/{hook_id}/deliveries
           - GET /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}
-      - name: organization-hooks-write
+      - name: organization_hooks:write
         description: Organization permissions for "Webhooks"
         rules:
           - POST /orgs/{org}/hooks
@@ -506,7 +506,7 @@ apis:
           - PATCH /orgs/{org}/hooks/{hook_id}/config
           - POST /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempts
           - POST /orgs/{org}/hooks/{hook_id}/pings
-      - name: actions-read
+      - name: actions:read
         description: Repository permissions for "Actions"
         rules:
           - GET /repos/{owner}/{repo}/actions/artifacts
@@ -539,7 +539,7 @@ apis:
           - GET /repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}
           - GET /repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules
           - GET /repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}
-      - name: actions-write
+      - name: actions:write
         description: Repository permissions for "Actions"
         rules:
           - DELETE /repos/{owner}/{repo}/actions/artifacts/{artifact_id}
@@ -557,7 +557,7 @@ apis:
           - PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/disable
           - POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches
           - PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable
-      - name: administration-read
+      - name: administration:read
         description: Repository permissions for "Administration"
         rules:
           - GET /repos/{owner}/{repo}/actions/cache/retention-limit
@@ -602,7 +602,7 @@ apis:
           - GET /repos/{owner}/{repo}/traffic/views
           - GET /repos/{owner}/{repo}/vulnerability-alerts
           - GET /user/repository_invitations
-      - name: administration-write
+      - name: administration:write
         description: Repository permissions for "Administration"
         rules:
           - POST /orgs/{org}/repos
@@ -695,23 +695,23 @@ apis:
           - POST /user/repos
           - PATCH /user/repository_invitations/{invitation_id}
           - DELETE /user/repository_invitations/{invitation_id}
-      - name: artifact-metadata-read
+      - name: artifact_metadata:read
         description: Repository permissions for "Artifact metadata"
         rules:
           - GET /orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records
           - GET /orgs/{org}/artifacts/{subject_digest}/metadata/storage-records
-      - name: artifact-metadata-write
+      - name: artifact_metadata:write
         description: Repository permissions for "Artifact metadata"
         rules:
           - POST /orgs/{org}/artifacts/metadata/deployment-record
           - POST /orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}
           - POST /orgs/{org}/artifacts/metadata/storage-record
-      - name: attestations-read
+      - name: attestations:read
         description: Repository permissions for "Attestations"
         rules:
           - GET /orgs/{org}/attestations/repositories
           - GET /repos/{owner}/{repo}/attestations/{subject_digest}
-      - name: attestations-write
+      - name: attestations:write
         description: Repository permissions for "Attestations"
         rules:
           - POST /orgs/{org}/attestations/delete-request
@@ -721,7 +721,7 @@ apis:
           - POST /users/{username}/attestations/delete-request
           - DELETE /users/{username}/attestations/digest/{subject_digest}
           - DELETE /users/{username}/attestations/{attestation_id}
-      - name: checks-read
+      - name: checks:read
         description: Repository permissions for "Checks"
         rules:
           - GET /repos/{owner}/{repo}/check-runs/{check_run_id}
@@ -730,7 +730,7 @@ apis:
           - GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs
           - GET /repos/{owner}/{repo}/commits/{ref}/check-runs
           - GET /repos/{owner}/{repo}/commits/{ref}/check-suites
-      - name: checks-write
+      - name: checks:write
         description: Repository permissions for "Checks"
         rules:
           - POST /repos/{owner}/{repo}/check-runs
@@ -739,7 +739,7 @@ apis:
           - POST /repos/{owner}/{repo}/check-suites
           - PATCH /repos/{owner}/{repo}/check-suites/preferences
           - POST /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest
-      - name: security-events-read
+      - name: security_events:read
         description: Repository permissions for "Code scanning alerts"
         rules:
           - GET /orgs/{org}/code-scanning/alerts
@@ -750,31 +750,31 @@ apis:
           - GET /repos/{owner}/{repo}/code-scanning/analyses
           - GET /repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}
           - GET /repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}
-      - name: security-events-write
+      - name: security_events:write
         description: Repository permissions for "Code scanning alerts"
         rules:
           - PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}
           - POST /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix
           - DELETE /repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}
           - POST /repos/{owner}/{repo}/code-scanning/sarifs
-      - name: codespaces-lifecycle-admin-read
+      - name: codespaces_lifecycle_admin:read
         description: Repository permissions for "Codespaces lifecycle admin"
         rules:
           - GET /user/codespaces/{codespace_name}/exports/{export_id}
-      - name: codespaces-lifecycle-admin-write
+      - name: codespaces_lifecycle_admin:write
         description: Repository permissions for "Codespaces lifecycle admin"
         rules:
           - POST /orgs/{org}/members/{username}/codespaces/{codespace_name}/stop
           - POST /user/codespaces/{codespace_name}/exports
           - POST /user/codespaces/{codespace_name}/start
           - POST /user/codespaces/{codespace_name}/stop
-      - name: codespaces-metadata-read
+      - name: codespaces_metadata:read
         description: Repository permissions for "Codespaces metadata"
         rules:
           - GET /repos/{owner}/{repo}/codespaces/devcontainers
           - GET /repos/{owner}/{repo}/codespaces/machines
           - GET /user/codespaces/{codespace_name}/machines
-      - name: codespaces-secrets-write
+      - name: codespaces_secrets:write
         description: Repository permissions for "Codespaces secrets"
         rules:
           - GET /repos/{owner}/{repo}/codespaces/secrets
@@ -782,7 +782,7 @@ apis:
           - GET /repos/{owner}/{repo}/codespaces/secrets/{secret_name}
           - PUT /repos/{owner}/{repo}/codespaces/secrets/{secret_name}
           - DELETE /repos/{owner}/{repo}/codespaces/secrets/{secret_name}
-      - name: codespaces-read
+      - name: codespaces:read
         description: Repository permissions for "Codespaces"
         rules:
           - GET /orgs/{org}/codespaces
@@ -790,7 +790,7 @@ apis:
           - GET /repos/{owner}/{repo}/codespaces
           - GET /user/codespaces
           - GET /user/codespaces/{codespace_name}
-      - name: codespaces-write
+      - name: codespaces:write
         description: Repository permissions for "Codespaces"
         rules:
           - DELETE /orgs/{org}/members/{username}/codespaces/{codespace_name}
@@ -802,16 +802,16 @@ apis:
           - PATCH /user/codespaces/{codespace_name}
           - DELETE /user/codespaces/{codespace_name}
           - POST /user/codespaces/{codespace_name}/publish
-      - name: statuses-read
+      - name: statuses:read
         description: Repository permissions for "Commit statuses"
         rules:
           - GET /repos/{owner}/{repo}/commits/{ref}/status
           - GET /repos/{owner}/{repo}/commits/{ref}/statuses
-      - name: statuses-write
+      - name: statuses:write
         description: Repository permissions for "Commit statuses"
         rules:
           - POST /repos/{owner}/{repo}/statuses/{sha}
-      - name: contents-read
+      - name: contents:read
         description: Repository permissions for "Contents"
         rules:
           - POST /markdown
@@ -856,7 +856,7 @@ apis:
           - GET /repos/{owner}/{repo}/tarball/{ref}
           - GET /repos/{owner}/{repo}/zipball/{ref}
           - POST /repos/{template_owner}/{template_repo}/generate
-      - name: contents-write
+      - name: contents:write
         description: Repository permissions for "Contents"
         rules:
           - POST /orgs/{org}/artifacts/metadata/deployment-record
@@ -896,39 +896,39 @@ apis:
           - PATCH /repos/{owner}/{repo}/releases/{release_id}
           - DELETE /repos/{owner}/{repo}/releases/{release_id}
           - POST /repos/{owner}/{repo}/secret-scanning/push-protection-bypasses
-      - name: repository-custom-properties-write
+      - name: repository_custom_properties:write
         description: Repository permissions for "Custom properties"
         rules:
           - PATCH /repos/{owner}/{repo}/properties/values
-      - name: vulnerability-alerts-read
+      - name: vulnerability_alerts:read
         description: Repository permissions for "Dependabot alerts"
         rules:
           - GET /orgs/{org}/dependabot/alerts
           - GET /repos/{owner}/{repo}/dependabot/alerts
           - GET /repos/{owner}/{repo}/dependabot/alerts/{alert_number}
-      - name: vulnerability-alerts-write
+      - name: vulnerability_alerts:write
         description: Repository permissions for "Dependabot alerts"
         rules:
           - PATCH /repos/{owner}/{repo}/dependabot/alerts/{alert_number}
-      - name: dependabot-secrets-read
+      - name: dependabot_secrets:read
         description: Repository permissions for "Dependabot secrets"
         rules:
           - GET /repos/{owner}/{repo}/dependabot/secrets
           - GET /repos/{owner}/{repo}/dependabot/secrets/public-key
           - GET /repos/{owner}/{repo}/dependabot/secrets/{secret_name}
-      - name: dependabot-secrets-write
+      - name: dependabot_secrets:write
         description: Repository permissions for "Dependabot secrets"
         rules:
           - PUT /repos/{owner}/{repo}/dependabot/secrets/{secret_name}
           - DELETE /repos/{owner}/{repo}/dependabot/secrets/{secret_name}
-      - name: deployments-read
+      - name: deployments:read
         description: Repository permissions for "Deployments"
         rules:
           - GET /repos/{owner}/{repo}/deployments
           - GET /repos/{owner}/{repo}/deployments/{deployment_id}
           - GET /repos/{owner}/{repo}/deployments/{deployment_id}/statuses
           - GET /repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}
-      - name: deployments-write
+      - name: deployments:write
         description: Repository permissions for "Deployments"
         rules:
           - POST /repos/{owner}/{repo}/actions/runs/{run_id}/deployment_protection_rule
@@ -936,7 +936,7 @@ apis:
           - POST /repos/{owner}/{repo}/deployments
           - DELETE /repos/{owner}/{repo}/deployments/{deployment_id}
           - POST /repos/{owner}/{repo}/deployments/{deployment_id}/statuses
-      - name: environments-read
+      - name: environments:read
         description: Repository permissions for "Environments"
         rules:
           - GET /repos/{owner}/{repo}/environments/{environment_name}/secrets
@@ -944,7 +944,7 @@ apis:
           - GET /repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}
           - GET /repos/{owner}/{repo}/environments/{environment_name}/variables
           - GET /repos/{owner}/{repo}/environments/{environment_name}/variables/{name}
-      - name: environments-write
+      - name: environments:write
         description: Repository permissions for "Environments"
         rules:
           - PUT /repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}
@@ -952,7 +952,7 @@ apis:
           - POST /repos/{owner}/{repo}/environments/{environment_name}/variables
           - PATCH /repos/{owner}/{repo}/environments/{environment_name}/variables/{name}
           - DELETE /repos/{owner}/{repo}/environments/{environment_name}/variables/{name}
-      - name: issues-read
+      - name: issues:read
         description: Repository permissions for "Issues"
         rules:
           - GET /repos/{owner}/{repo}/assignees
@@ -980,7 +980,7 @@ apis:
           - GET /repos/{owner}/{repo}/milestones
           - GET /repos/{owner}/{repo}/milestones/{milestone_number}
           - GET /repos/{owner}/{repo}/milestones/{milestone_number}/labels
-      - name: issues-write
+      - name: issues:write
         description: Repository permissions for "Issues"
         rules:
           - POST /repos/{owner}/{repo}/issues
@@ -1016,7 +1016,7 @@ apis:
           - POST /repositories/{repository_id}/issues/{issue_number}/issue-field-values
           - PUT /repositories/{repository_id}/issues/{issue_number}/issue-field-values
           - DELETE /repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}
-      - name: metadata-read
+      - name: metadata:read
         description: Repository permissions for "Metadata"
         rules:
           - GET /orgs/{org}/repos
@@ -1052,7 +1052,7 @@ apis:
           - GET /user/installations/{installation_id}/repositories
           - GET /user/repos
           - GET /users/{username}/repos
-      - name: pages-read
+      - name: pages:read
         description: Repository permissions for "Pages"
         rules:
           - GET /repos/{owner}/{repo}/pages
@@ -1060,7 +1060,7 @@ apis:
           - GET /repos/{owner}/{repo}/pages/builds/latest
           - GET /repos/{owner}/{repo}/pages/builds/{build_id}
           - GET /repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}
-      - name: pages-write
+      - name: pages:write
         description: Repository permissions for "Pages"
         rules:
           - POST /repos/{owner}/{repo}/pages
@@ -1070,7 +1070,7 @@ apis:
           - POST /repos/{owner}/{repo}/pages/deployments
           - POST /repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel
           - GET /repos/{owner}/{repo}/pages/health
-      - name: pull-requests-read
+      - name: pull_requests:read
         description: Repository permissions for "Pull requests"
         rules:
           - GET /repos/{owner}/{repo}/assignees
@@ -1102,7 +1102,7 @@ apis:
           - GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews
           - GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}
           - GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments
-      - name: pull-requests-write
+      - name: pull_requests:write
         description: Repository permissions for "Pull requests"
         rules:
           - PATCH /repos/{owner}/{repo}/issues/comments/{comment_id}
@@ -1142,13 +1142,13 @@ apis:
           - POST /repositories/{repository_id}/issues/{issue_number}/issue-field-values
           - PUT /repositories/{repository_id}/issues/{issue_number}/issue-field-values
           - DELETE /repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}
-      - name: repository-advisories-read
+      - name: repository_advisories:read
         description: Repository permissions for "Repository security advisories"
         rules:
           - GET /repos/{owner}/{repo}/security-advisories
           - GET /repos/{owner}/{repo}/security-advisories/{ghsa_id}
           - POST /repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks
-      - name: repository-advisories-write
+      - name: repository_advisories:write
         description: Repository permissions for "Repository security advisories"
         rules:
           - GET /orgs/{org}/security-advisories
@@ -1156,7 +1156,7 @@ apis:
           - POST /repos/{owner}/{repo}/security-advisories/reports
           - PATCH /repos/{owner}/{repo}/security-advisories/{ghsa_id}
           - POST /repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve
-      - name: secret-scanning-alerts-read
+      - name: secret_scanning_alerts:read
         description: Repository permissions for "Secret scanning alerts"
         rules:
           - GET /orgs/{org}/secret-scanning/alerts
@@ -1164,35 +1164,35 @@ apis:
           - GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}
           - GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations
           - GET /repos/{owner}/{repo}/secret-scanning/scan-history
-      - name: secret-scanning-alerts-write
+      - name: secret_scanning_alerts:write
         description: Repository permissions for "Secret scanning alerts"
         rules:
           - PATCH /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}
-      - name: secrets-read
+      - name: secrets:read
         description: Repository permissions for "Secrets"
         rules:
           - GET /repos/{owner}/{repo}/actions/organization-secrets
           - GET /repos/{owner}/{repo}/actions/secrets
           - GET /repos/{owner}/{repo}/actions/secrets/public-key
           - GET /repos/{owner}/{repo}/actions/secrets/{secret_name}
-      - name: secrets-write
+      - name: secrets:write
         description: Repository permissions for "Secrets"
         rules:
           - PUT /repos/{owner}/{repo}/actions/secrets/{secret_name}
           - DELETE /repos/{owner}/{repo}/actions/secrets/{secret_name}
-      - name: actions-variables-read
+      - name: actions_variables:read
         description: Repository permissions for "Variables"
         rules:
           - GET /repos/{owner}/{repo}/actions/organization-variables
           - GET /repos/{owner}/{repo}/actions/variables
           - GET /repos/{owner}/{repo}/actions/variables/{name}
-      - name: actions-variables-write
+      - name: actions_variables:write
         description: Repository permissions for "Variables"
         rules:
           - POST /repos/{owner}/{repo}/actions/variables
           - PATCH /repos/{owner}/{repo}/actions/variables/{name}
           - DELETE /repos/{owner}/{repo}/actions/variables/{name}
-      - name: repository-hooks-read
+      - name: repository_hooks:read
         description: Repository permissions for "Webhooks"
         rules:
           - GET /repos/{owner}/{repo}/hooks
@@ -1202,7 +1202,7 @@ apis:
           - GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}
           - POST /repos/{owner}/{repo}/hooks/{hook_id}/pings
           - POST /repos/{owner}/{repo}/hooks/{hook_id}/tests
-      - name: repository-hooks-write
+      - name: repository_hooks:write
         description: Repository permissions for "Webhooks"
         rules:
           - POST /repos/{owner}/{repo}/hooks
@@ -1210,7 +1210,7 @@ apis:
           - DELETE /repos/{owner}/{repo}/hooks/{hook_id}
           - PATCH /repos/{owner}/{repo}/hooks/{hook_id}/config
           - POST /repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}/attempts
-      - name: workflows-write
+      - name: workflows:write
         description: Repository permissions for "Workflows"
         rules:
           - PUT /repos/{owner}/{repo}/contents/{path*}
@@ -1218,24 +1218,24 @@ apis:
           - POST /repos/{owner}/{repo}/git/refs
           - PATCH /repos/{owner}/{repo}/git/refs/{ref+}
           - POST /repos/{owner}/{repo}/releases
-      - name: blocking-read
+      - name: blocking:read
         description: User permissions for "Block another user"
         rules:
           - GET /user/blocks
           - GET /user/blocks/{username}
-      - name: blocking-write
+      - name: blocking:write
         description: User permissions for "Block another user"
         rules:
           - PUT /user/blocks/{username}
           - DELETE /user/blocks/{username}
-      - name: codespaces-user-secrets-read
+      - name: codespaces_user_secrets:read
         description: User permissions for "Codespaces user secrets"
         rules:
           - GET /user/codespaces/secrets
           - GET /user/codespaces/secrets/public-key
           - GET /user/codespaces/secrets/{secret_name}
           - GET /user/codespaces/secrets/{secret_name}/repositories
-      - name: codespaces-user-secrets-write
+      - name: codespaces_user_secrets:write
         description: User permissions for "Codespaces user secrets"
         rules:
           - PUT /user/codespaces/secrets/{secret_name}
@@ -1243,39 +1243,39 @@ apis:
           - PUT /user/codespaces/secrets/{secret_name}/repositories
           - PUT /user/codespaces/secrets/{secret_name}/repositories/{repository_id}
           - DELETE /user/codespaces/secrets/{secret_name}/repositories/{repository_id}
-      - name: emails-read
+      - name: emails:read
         description: User permissions for "Email addresses"
         rules:
           - GET /user/emails
           - GET /user/public_emails
-      - name: emails-write
+      - name: emails:write
         description: User permissions for "Email addresses"
         rules:
           - PATCH /user/email/visibility
           - POST /user/emails
           - DELETE /user/emails
-      - name: followers-read
+      - name: followers:read
         description: User permissions for "Followers"
         rules:
           - GET /user/followers
           - GET /user/following
           - GET /user/following/{username}
-      - name: followers-write
+      - name: followers:write
         description: User permissions for "Followers"
         rules:
           - PUT /user/following/{username}
           - DELETE /user/following/{username}
-      - name: gpg-keys-read
+      - name: gpg_keys:read
         description: User permissions for "GPG keys"
         rules:
           - GET /user/gpg_keys
           - GET /user/gpg_keys/{gpg_key_id}
-      - name: gpg-keys-write
+      - name: gpg_keys:write
         description: User permissions for "GPG keys"
         rules:
           - POST /user/gpg_keys
           - DELETE /user/gpg_keys/{gpg_key_id}
-      - name: gists-write
+      - name: gists:write
         description: User permissions for "Gists"
         rules:
           - POST /gists
@@ -1287,64 +1287,64 @@ apis:
           - POST /gists/{gist_id}/forks
           - PUT /gists/{gist_id}/star
           - DELETE /gists/{gist_id}/star
-      - name: keys-read
+      - name: keys:read
         description: User permissions for "Git SSH keys"
         rules:
           - GET /user/keys
           - GET /user/keys/{key_id}
           - GET /users/{username}/keys
-      - name: keys-write
+      - name: keys:write
         description: User permissions for "Git SSH keys"
         rules:
           - POST /user/keys
           - DELETE /user/keys/{key_id}
-      - name: interaction-limits-read
+      - name: interaction_limits:read
         description: User permissions for "Interaction limits"
         rules:
           - GET /user/interaction-limits
-      - name: interaction-limits-write
+      - name: interaction_limits:write
         description: User permissions for "Interaction limits"
         rules:
           - PUT /user/interaction-limits
           - DELETE /user/interaction-limits
-      - name: plan-read
+      - name: plan:read
         description: User permissions for "Plan"
         rules:
           - GET /users/{username}/settings/billing/premium_request/usage
           - GET /users/{username}/settings/billing/usage
           - GET /users/{username}/settings/billing/usage/summary
-      - name: private-repository-invitations-read
+      - name: private_repository_invitations:read
         description: User permissions for "Private repository invitations"
         rules:
           - GET /repos/{owner}/{repo}/invitations
-      - name: profile-write
+      - name: profile:write
         description: User permissions for "Profile"
         rules:
           - PATCH /user
           - POST /user/social_accounts
           - DELETE /user/social_accounts
-      - name: git-signing-ssh-public-keys-read
+      - name: git_signing_ssh_public_keys:read
         description: User permissions for "SSH signing keys"
         rules:
           - GET /user/ssh_signing_keys
           - GET /user/ssh_signing_keys/{ssh_signing_key_id}
-      - name: git-signing-ssh-public-keys-write
+      - name: git_signing_ssh_public_keys:write
         description: User permissions for "SSH signing keys"
         rules:
           - POST /user/ssh_signing_keys
           - DELETE /user/ssh_signing_keys/{ssh_signing_key_id}
-      - name: starring-read
+      - name: starring:read
         description: User permissions for "Starring"
         rules:
           - GET /user/starred
           - GET /user/starred/{owner}/{repo}
           - GET /users/{username}/starred
-      - name: starring-write
+      - name: starring:write
         description: User permissions for "Starring"
         rules:
           - PUT /user/starred/{owner}/{repo}
           - DELETE /user/starred/{owner}/{repo}
-      - name: watching-read
+      - name: watching:read
         description: User permissions for "Watching"
         rules:
           - GET /user/subscriptions

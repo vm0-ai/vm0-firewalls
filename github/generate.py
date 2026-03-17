@@ -69,7 +69,7 @@ def build_groups(perms_data):
             verb = ep["verb"]
             path = ep["requestPath"]
             access = ep["access"]
-            group_name = f"{perm_key.replace('_', '-')}-{access}"
+            group_name = f"{perm_key}:{access}"
             fw_path = _convert_path(path)
             rule = f"{verb.upper()} {fw_path}"
             groups[group_name].add(rule)
@@ -94,8 +94,8 @@ def _ordered_names(groups, perms_data):
     """Return permission group names ordered by source data iteration order."""
     ordered = []
     for perm_key in perms_data:
-        for suffix in ("-read", "-write", "-admin"):
-            name = f"{perm_key.replace('_', '-')}{suffix}"
+        for access in ("read", "write", "admin"):
+            name = f"{perm_key}:{access}"
             if name in groups and groups[name] and name not in ordered:
                 ordered.append(name)
     # Anything missed (shouldn't happen)
