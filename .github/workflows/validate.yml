@@ -1,0 +1,14 @@
+name: Validate firewalls
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip3 install pyyaml
+      - run: python3 validate.py
