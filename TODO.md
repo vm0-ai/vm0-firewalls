@@ -6,7 +6,6 @@ Each firewall should align with its OAuth provider / connector in vm0.
 
 Commonly used connectors with fine-grained permission/scope systems.
 
-- [ ] Notion — capabilities permission system
 - [ ] Linear — OAuth scopes
 - [ ] Atlassian (Jira) — OAuth scopes
 - [ ] Atlassian (Confluence) — OAuth scopes
@@ -46,3 +45,4 @@ API key auth or smaller usage.
 - [x] Google Docs — auto-generated from Google Discovery API
 - [x] Google Drive — auto-generated from Google Discovery API
 - [x] Google Calendar — auto-generated from Google Discovery API
+- [x] Notion — auto-generated from OpenAPI spec + endpoint docs
