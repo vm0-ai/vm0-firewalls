@@ -6,9 +6,6 @@ Each firewall should align with its OAuth provider / connector in vm0.
 
 Commonly used connectors with fine-grained permission/scope systems.
 
-- [ ] Linear — OAuth scopes
-- [ ] Atlassian (Jira) — OAuth scopes
-- [ ] Atlassian (Confluence) — OAuth scopes
 - [ ] HubSpot — OAuth scopes
 
 ## Medium Priority
@@ -19,7 +16,6 @@ Commonly used with simpler permission models.
 - [ ] Figma — OAuth scopes
 - [ ] Stripe — REST API
 - [ ] Dropbox — OAuth scopes
-- [ ] Vercel — OAuth scopes
 - [ ] Sentry — OAuth scopes
 - [ ] Monday.com — OAuth scopes
 
@@ -46,3 +42,12 @@ API key auth or smaller usage.
 - [x] Google Drive — auto-generated from Google Discovery API
 - [x] Google Calendar — auto-generated from Google Discovery API
 - [x] Notion — auto-generated from OpenAPI spec + endpoint docs
+- [x] Vercel — auto-generated from OpenAPI spec
+- [x] Jira — auto-generated from OpenAPI spec (OAuth scopes)
+- [x] Confluence — auto-generated from OpenAPI spec (OAuth scopes)
+
+## Not Supported
+
+GraphQL-only APIs (no REST endpoints to match).
+
+- Linear — GraphQL only
