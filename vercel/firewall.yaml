@@ -59,6 +59,9 @@ apis:
         rules:
           - GET /v1/billing/charges
           - GET /v1/billing/contract-commitments
+      - name: billing:write
+        rules:
+          - POST /v1/billing/buy
       - name: bulk-redirects:read
         rules:
           - GET /v1/bulk-redirects

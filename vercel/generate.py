@@ -21,6 +21,8 @@ from collections import defaultdict
 
 OPENAPI_URL = "https://openapi.vercel.sh/"
 
+# Format: vcp_[A-Za-z0-9]{56} (60 chars)
+# Source: https://vercel.com/changelog/new-token-formats-and-secret-scanning
 PLACEHOLDER_VALUE = "vcp_Vm0PlaceHolder000000000000000000000000000000000000000000"
 
 # ── Grouping ─────────────────────────────────────────────────────────────
