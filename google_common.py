@@ -14,7 +14,7 @@ Usage from a service-specific generate.py:
         service_name="gmail",
         service_description="Gmail API",
         placeholder_key="GMAIL_TOKEN",
-        placeholder_value="ya29.Vm0PlaceHolder0...",
+        placeholder_value="ya29.A0Vm0PlaceHolder-Vm0_PlaceHolder00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     )
 """
 
@@ -172,6 +172,10 @@ def generate_firewall(
         service_description: Human-readable description.
         placeholder_key: Environment variable name for the token.
         placeholder_value: Placeholder token value.
+            Format: ya29.[A-Za-z0-9_-]+ (Google OAuth2 access token)
+            No public format spec; length varies (~45-220 chars).
+            ya29. prefix and character set observed from Google's docs examples.
+            Source: https://developers.google.com/identity/oauth2/web/guides/migration-to-gis
     """
     print(f"Downloading {service_name} discovery document…", file=sys.stderr)
     req = urllib.request.Request(

@@ -134,6 +134,8 @@ def render_yaml(groups):
         "name: slack",
         "description: Slack API",
         "placeholders:",
+        # Format: xoxb-[0-9]{10,13}-[0-9]{10,13}[a-zA-Z0-9-]* (Slack bot token)
+        # Source: https://github.com/gitleaks/gitleaks/blob/master/config/gitleaks.toml
         '  SLACK_TOKEN: "xoxb-000000000000-0000000000000-Vm0PlaceHolder0000000000"',
         "apis:",
         "  - base: https://slack.com/api",

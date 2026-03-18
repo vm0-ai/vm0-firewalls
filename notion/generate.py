@@ -71,7 +71,9 @@ _DOC_TEXT_TO_CAPABILITY = {
     "user information": "read_users",
 }
 
-PLACEHOLDER_VALUE = "ntn_Vm0PlaceHolder0000000000000000000000000000000"
+# Format: ntn_[0-9]{11}[A-Za-z0-9]{32}[A-Za-z0-9]{3} (50 chars)
+# Source: https://github.com/gitleaks/gitleaks/blob/master/config/gitleaks.toml
+PLACEHOLDER_VALUE = "ntn_00000000000Vm0PlaceHolder000000000000000000Aaa"
 
 CAPABILITY_DESCRIPTIONS = {
     "read_content": "Read pages, databases, blocks, data sources, and files",
