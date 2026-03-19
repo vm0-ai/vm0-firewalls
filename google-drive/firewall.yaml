@@ -1,6 +1,6 @@
 # Auto-generated from Google's Discovery API.
 # Source: https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
-# Regenerate: python3 google-drive/generate.py
+# Regenerate: python3 -m src.google_drive
 name: google-drive
 description: Google Drive API
 placeholders:

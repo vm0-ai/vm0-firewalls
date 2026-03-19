@@ -12,7 +12,7 @@ access level (read/write) for every REST API endpoint.  No heuristics
 or manual mapping needed — the classification is entirely data-driven.
 
 Usage:
-    python3 github/generate.py
+    python3 -m src.github
 """
 
 import binascii
@@ -21,6 +21,8 @@ import os
 import sys
 import urllib.request
 from collections import defaultdict
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 PERMS_URL = (
     "https://raw.githubusercontent.com/github/docs/main/"
@@ -157,7 +159,7 @@ def render_yaml(groups, descriptions, perms_data):
         "# Auto-generated from GitHub's official permissions data.",
         "# Source: github/docs/src/github-apps/data/fpt-2026-03-10/"
         "server-to-server-permissions.json",
-        "# Regenerate: python3 github/generate.py",
+        "# Regenerate: python3 -m src.github",
         "name: github",
         "description: GitHub API",
         "placeholders:",
@@ -204,7 +206,7 @@ def main():
     groups, descriptions = build_groups(perms_data)
     yaml = render_yaml(groups, descriptions, perms_data)
 
-    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "firewall.yaml")
+    out = os.path.join(REPO_ROOT, "github", "firewall.yaml")
     with open(out, "w") as f:
         f.write(yaml)
 

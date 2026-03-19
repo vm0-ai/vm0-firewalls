@@ -2,12 +2,10 @@
 """Generate gmail/firewall.yaml from Google's Discovery API.
 
 Usage:
-    python3 gmail/generate.py
+    python3 -m src.gmail
 """
 
-import sys
-sys.path.insert(0, sys.path[0] + "/..")
-from google_common import generate_firewall
+from .google_common import generate_firewall
 
 generate_firewall(
     discovery_url="https://gmail.googleapis.com/$discovery/rest?version=v1",

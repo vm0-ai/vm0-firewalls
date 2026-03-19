@@ -2,12 +2,10 @@
 """Generate google-drive/firewall.yaml from Google's Discovery API.
 
 Usage:
-    python3 google-drive/generate.py
+    python3 -m src.google_drive
 """
 
-import sys
-sys.path.insert(0, sys.path[0] + "/..")
-from google_common import generate_firewall
+from .google_common import generate_firewall
 
 generate_firewall(
     discovery_url="https://www.googleapis.com/discovery/v1/apis/drive/v3/rest",

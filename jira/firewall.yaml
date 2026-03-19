@@ -1,7 +1,7 @@
 # Auto-generated from Jira Cloud's official OpenAPI spec.
 # Source: https://developer.atlassian.com/cloud/jira/platform/swagger-v3.v3.json
 # Scopes: OAuth 2.0 (3LO) classic scopes from spec security annotations.
-# Regenerate: python3 jira/generate.py
+# Regenerate: python3 -m src.jira
 name: jira
 description: Jira Cloud API
 placeholders:

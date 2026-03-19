@@ -3,9 +3,9 @@
 All Google APIs (Gmail, Sheets, Docs, Drive, Calendar) use the same Discovery
 API format with the same structure: resources → methods → {path, httpMethod, scopes}.
 
-Usage from a service-specific generate.py:
+Usage from a service-specific generator:
 
-    from google_common import generate_firewall
+    from .google_common import generate_firewall
 
     generate_firewall(
         discovery_url="https://gmail.googleapis.com/$discovery/rest?version=v1",
@@ -23,6 +23,8 @@ import os
 import sys
 import urllib.request
 from collections import defaultdict
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Short scope names: strip the common prefix for readable permission names.
 _SCOPE_PREFIX = "https://www.googleapis.com/auth/"
@@ -118,10 +120,11 @@ def _render_yaml(groups, discovery, base_url, service_name, service_description,
     ):
         scope_descs[_short_scope(scope_url)] = info.get("description", "")
 
+    module_name = service_name.replace("-", "_")
     lines = [
         "# Auto-generated from Google's Discovery API.",
         f"# Source: {discovery_url}",
-        f"# Regenerate: python3 {service_name}/generate.py",
+        f"# Regenerate: python3 -m src.{module_name}",
         f"name: {service_name}",
         f"description: {service_description}",
         "placeholders:",
@@ -193,9 +196,7 @@ def generate_firewall(
         placeholder_key, placeholder_value, discovery_url,
     )
 
-    out = os.path.join(
-        os.path.dirname(os.path.abspath(sys.argv[0])), "firewall.yaml"
-    )
+    out = os.path.join(REPO_ROOT, service_name, "firewall.yaml")
     with open(out, "w") as f:
         f.write(yaml_content)
 

@@ -12,7 +12,7 @@ on each endpoint in the spec's security requirements:
 Endpoints with empty scopes [] or without OAuth2 security are skipped.
 
 Usage:
-    python3 jira/generate.py
+    python3 -m src.jira
 """
 
 import json
@@ -20,6 +20,8 @@ import os
 import sys
 import urllib.request
 from collections import defaultdict
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 OPENAPI_URL = (
     "https://developer.atlassian.com/cloud/jira/platform/swagger-v3.v3.json"
@@ -113,7 +115,7 @@ def render_yaml(groups, scope_descriptions):
         "# Auto-generated from Jira Cloud's official OpenAPI spec.",
         "# Source: https://developer.atlassian.com/cloud/jira/platform/swagger-v3.v3.json",
         "# Scopes: OAuth 2.0 (3LO) classic scopes from spec security annotations.",
-        "# Regenerate: python3 jira/generate.py",
+        "# Regenerate: python3 -m src.jira",
         "name: jira",
         "description: Jira Cloud API",
         "placeholders:",
@@ -158,7 +160,7 @@ def main():
     scope_descriptions = _extract_scope_descriptions(spec)
     yaml = render_yaml(groups, scope_descriptions)
 
-    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "firewall.yaml")
+    out = os.path.join(REPO_ROOT, "jira", "firewall.yaml")
     with open(out, "w") as f:
         f.write(yaml)
 

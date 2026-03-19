@@ -5,13 +5,15 @@ Mirrors the validation logic from firewall-expander.ts in vm0/turbo.
 Run this in CI to catch errors before merge.
 
 Usage:
-    python3 validate.py
+    python3 -m src.validate
 """
 
 import glob
+import os
 import sys
 import yaml
 
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 VALID_METHODS = {"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS", "ANY"}
 
@@ -136,18 +138,20 @@ def validate_firewall(filepath):
 
 
 def main():
-    files = sorted(glob.glob("*/firewall.yaml"))
+    files = sorted(glob.glob(os.path.join(REPO_ROOT, "*/firewall.yaml")))
     if not files:
         print("No firewall.yaml files found", file=sys.stderr)
         sys.exit(1)
 
     errors = 0
     for filepath in files:
+        # Show relative path for cleaner output
+        relpath = os.path.relpath(filepath, REPO_ROOT)
         try:
             validate_firewall(filepath)
-            print(f"  ✓ {filepath}", file=sys.stderr)
+            print(f"  ✓ {relpath}", file=sys.stderr)
         except Exception as e:
-            print(f"  ✗ {filepath}: {e}", file=sys.stderr)
+            print(f"  ✗ {relpath}: {e}", file=sys.stderr)
             errors += 1
 
     print(f"\n{len(files)} files checked, {errors} errors", file=sys.stderr)

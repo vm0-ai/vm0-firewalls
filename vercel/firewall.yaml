@@ -1,6 +1,6 @@
 # Auto-generated from Vercel's official OpenAPI spec.
 # Source: https://openapi.vercel.sh/
-# Regenerate: python3 vercel/generate.py
+# Regenerate: python3 -m src.vercel
 name: vercel
 description: Vercel API
 placeholders:
@@ -130,7 +130,7 @@ apis:
           - POST /v2/files
       - name: dns:read
         rules:
-          - GET /v4/domains/{domain}/records
+          - GET /v5/domains/{domain}/records
       - name: dns:write
         rules:
           - PATCH /v1/domains/records/{recordId}

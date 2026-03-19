@@ -18,7 +18,7 @@ are included in a "no_scopes_required" group since they still require
 a valid token.
 
 Usage:
-    python3 slack/generate.py
+    python3 -m src.slack
 """
 
 import json
@@ -28,6 +28,8 @@ import tarfile
 import urllib.request
 from collections import defaultdict
 from io import BytesIO
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 REPO_TARBALL_URL = (
     "https://github.com/slack-ruby/slack-api-ref/archive/refs/heads/master.tar.gz"
@@ -130,7 +132,7 @@ def render_yaml(groups):
     lines = [
         "# Auto-generated from Slack API method-to-scope mappings.",
         "# Source: slack-ruby/slack-api-ref (auto-synced daily from docs.slack.dev)",
-        "# Regenerate: python3 slack/generate.py",
+        "# Regenerate: python3 -m src.slack",
         "name: slack",
         "description: Slack API",
         "placeholders:",
@@ -178,7 +180,7 @@ def main():
     groups = build_groups(methods)
     yaml = render_yaml(groups)
 
-    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "firewall.yaml")
+    out = os.path.join(REPO_ROOT, "slack", "firewall.yaml")
     with open(out, "w") as f:
         f.write(yaml)
 

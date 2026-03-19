@@ -1,6 +1,6 @@
 # Auto-generated from Slack API method-to-scope mappings.
 # Source: slack-ruby/slack-api-ref (auto-synced daily from docs.slack.dev)
-# Regenerate: python3 slack/generate.py
+# Regenerate: python3 -m src.slack
 name: slack
 description: Slack API
 placeholders:
