@@ -10,7 +10,7 @@ endpoint in the spec's security requirements.
 Endpoints without OAuth2 security (PAT-only) are skipped.
 
 Usage:
-    python3 figma/generate.py
+    python3 -m src.figma
 """
 
 import os
@@ -19,6 +19,8 @@ import urllib.request
 from collections import defaultdict
 
 import yaml
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 OPENAPI_URL = (
     "https://raw.githubusercontent.com/figma/rest-api-spec/main/openapi/openapi.yaml"
@@ -127,7 +129,7 @@ def render_yaml(groups, scope_descriptions):
         "# Auto-generated from Figma's official OpenAPI spec.",
         "# Source: https://github.com/figma/rest-api-spec",
         "# Scopes: OAuth 2.0 scopes from spec security annotations.",
-        "# Regenerate: python3 figma/generate.py",
+        "# Regenerate: python3 -m src.figma",
         "name: figma",
         "description: Figma API",
         "placeholders:",
@@ -172,7 +174,7 @@ def main():
     scope_descriptions = _extract_scope_descriptions(spec)
     yaml_out = render_yaml(groups, scope_descriptions)
 
-    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "firewall.yaml")
+    out = os.path.join(REPO_ROOT, "figma", "firewall.yaml")
     with open(out, "w") as f:
         f.write(yaml_out)
 

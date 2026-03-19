@@ -1,6 +1,6 @@
 # Auto-generated from Google's Discovery API.
 # Source: https://docs.googleapis.com/$discovery/rest?version=v1
-# Regenerate: python3 google-docs/generate.py
+# Regenerate: python3 -m src.google_docs
 name: google-docs
 description: Google Docs API
 placeholders:

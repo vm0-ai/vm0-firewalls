@@ -1,6 +1,6 @@
 # Auto-generated from Google's Discovery API.
 # Source: https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest
-# Regenerate: python3 google-calendar/generate.py
+# Regenerate: python3 -m src.google_calendar
 name: google-calendar
 description: Google Calendar API
 placeholders:

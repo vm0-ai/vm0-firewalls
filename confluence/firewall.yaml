@@ -1,7 +1,7 @@
 # Auto-generated from Confluence Cloud's official OpenAPI spec.
 # Source: https://developer.atlassian.com/cloud/confluence/swagger.v3.json
 # Scopes: OAuth 2.0 (3LO) scopes from spec security annotations.
-# Regenerate: python3 confluence/generate.py
+# Regenerate: python3 -m src.confluence
 name: confluence
 description: Confluence Cloud API
 placeholders:

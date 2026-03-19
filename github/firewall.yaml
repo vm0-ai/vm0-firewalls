@@ -1,6 +1,6 @@
 # Auto-generated from GitHub's official permissions data.
 # Source: github/docs/src/github-apps/data/fpt-2026-03-10/server-to-server-permissions.json
-# Regenerate: python3 github/generate.py
+# Regenerate: python3 -m src.github
 name: github
 description: GitHub API
 placeholders:
@@ -173,6 +173,18 @@ apis:
           - POST /orgs/{org}/campaigns
           - PATCH /orgs/{org}/campaigns/{campaign_number}
           - DELETE /orgs/{org}/campaigns/{campaign_number}
+      - name: organization_copilot_agent_settings:read
+        description: Organization permissions for "Copilot agent settings"
+        rules:
+          - GET /orgs/{org}/copilot/coding-agent/permissions
+          - GET /orgs/{org}/copilot/coding-agent/permissions/repositories
+      - name: organization_copilot_agent_settings:write
+        description: Organization permissions for "Copilot agent settings"
+        rules:
+          - PUT /orgs/{org}/copilot/coding-agent/permissions
+          - PUT /orgs/{org}/copilot/coding-agent/permissions/repositories
+          - PUT /orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}
+          - DELETE /orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}
       - name: org_copilot_content_exclusion:read
         description: Organization permissions for "Copilot content exclusion"
         rules:

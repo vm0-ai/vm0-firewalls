@@ -18,7 +18,7 @@ For endpoints where the docs don't mention a capability (newer endpoints),
 we fall back to deterministic rules based on tag + HTTP method.
 
 Usage:
-    python3 notion/generate.py
+    python3 -m src.notion
 """
 
 import json
@@ -27,6 +27,8 @@ import re
 import sys
 import urllib.request
 from collections import defaultdict
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 OPENAPI_URL = "https://developers.notion.com/openapi.json"
 
@@ -180,7 +182,7 @@ def render_yaml(groups):
         "# Source: https://developers.notion.com/openapi.json",
         "# Capability mapping: extracted from endpoint docs (x-notion-docs-ref)",
         "# with rule-based fallback for undocumented endpoints.",
-        "# Regenerate: python3 notion/generate.py",
+        "# Regenerate: python3 -m src.notion",
         "name: notion",
         "description: Notion API",
         "placeholders:",
@@ -221,7 +223,7 @@ def main():
     groups = build_groups(spec)
     yaml = render_yaml(groups)
 
-    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "firewall.yaml")
+    out = os.path.join(REPO_ROOT, "notion", "firewall.yaml")
     with open(out, "w") as f:
         f.write(yaml)
 

@@ -10,7 +10,7 @@ based on HTTP method:
   - write: POST, PUT, PATCH, DELETE
 
 Usage:
-    python3 vercel/generate.py
+    python3 -m src.vercel
 """
 
 import json
@@ -18,6 +18,8 @@ import os
 import sys
 import urllib.request
 from collections import defaultdict
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 OPENAPI_URL = "https://openapi.vercel.sh/"
 
@@ -78,7 +80,7 @@ def render_yaml(groups):
     lines = [
         "# Auto-generated from Vercel's official OpenAPI spec.",
         "# Source: https://openapi.vercel.sh/",
-        "# Regenerate: python3 vercel/generate.py",
+        "# Regenerate: python3 -m src.vercel",
         "name: vercel",
         "description: Vercel API",
         "placeholders:",
@@ -116,7 +118,7 @@ def main():
     groups = build_groups(spec)
     yaml = render_yaml(groups)
 
-    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "firewall.yaml")
+    out = os.path.join(REPO_ROOT, "vercel", "firewall.yaml")
     with open(out, "w") as f:
         f.write(yaml)
 

@@ -1,6 +1,6 @@
 # Auto-generated from Google's Discovery API.
 # Source: https://sheets.googleapis.com/$discovery/rest?version=v4
-# Regenerate: python3 google-sheets/generate.py
+# Regenerate: python3 -m src.google_sheets
 name: google-sheets
 description: Google Sheets API
 placeholders:
