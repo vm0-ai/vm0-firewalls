@@ -13,7 +13,6 @@ Commonly used connectors with fine-grained permission/scope systems.
 Commonly used with simpler permission models.
 
 - [ ] Asana — OAuth
-- [ ] Figma — OAuth scopes
 - [ ] Stripe — REST API
 - [ ] Dropbox — OAuth scopes
 - [ ] Sentry — OAuth scopes
@@ -45,6 +44,7 @@ API key auth or smaller usage.
 - [x] Vercel — auto-generated from OpenAPI spec
 - [x] Jira — auto-generated from OpenAPI spec (OAuth scopes)
 - [x] Confluence — auto-generated from OpenAPI spec (OAuth scopes)
+- [x] Figma — auto-generated from OpenAPI spec (OAuth scopes)
 
 ## Not Supported
 
